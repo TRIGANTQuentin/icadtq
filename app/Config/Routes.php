@@ -17,6 +17,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/animal/retrouve', 'Animal::pageRetrouve');
 $routes->post('/animal/retrouve', 'Animal::bddRetrouve');
 
+//Pour le fetch de la page accueil authentifié
+$routes->get('/animal/requete', 'Animal::listeAnimal');
+
 //Page pour connexion
 $routes->get('/login', 'Home::pageConnexion');
 $routes->post('/login', 'Home::validationConnexion');
