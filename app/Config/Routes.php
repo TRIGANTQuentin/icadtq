@@ -11,7 +11,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 //Page local pour création de compte
-//$routes->get('/', 'Local::index');
+$routes->get('/inscription', 'Register::index');
+$routes->post('/inscription', 'Register::validation');
 
 //Page animal retrouvé (sans authentification)
 $routes->get('/animal/retrouve', 'Animal::pageRetrouve');
