@@ -27,9 +27,9 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
+        'username'     => 'root',
         'password'     => '',
-        'database'     => '',
+        'database'     => 'icad1',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -71,6 +71,31 @@ class Database extends Config
         'busyTimeout' => 1000,
     ];
 
+    /**
+     * The default database connection.
+     */
+    public array $listeAnimal = [
+        'DSN'          => '',
+        'hostname'     => 'localhost',
+        'username'     => 'root',
+        'password'     => '',
+        'database'     => 'icad1',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => true,
+        'charset'      => 'utf8',
+        'DBCollat'     => 'utf8_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+        'numberNative' => false,
+    ];
+
+
     public function __construct()
     {
         parent::__construct();
@@ -82,4 +107,5 @@ class Database extends Config
             $this->defaultGroup = 'tests';
         }
     }
+
 }
