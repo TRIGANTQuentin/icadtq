@@ -29,7 +29,7 @@
     <table>
       <thead>
       <tr>
-        <th>ID</th><th>PRENOM</th><th>PRENOM</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>Modifier</th><th>Supprimer</th>
       </tr>
         <th><input type="text" id="a" oninput="triTableau()"></th><th><input type="text" id="b" oninput="triTableau()"></th><th><input type="text" id="c" oninput="triTableau()"></th>
       </thead>
@@ -65,7 +65,7 @@
       var ligne = "";
       donnee.forEach((element) => {
 
-          ligne += "<tr><th>" + element["ID_UTILISATEUR"] + "</th>" + "<th>" + element["NOM_UTILISATEUR"] + "</th>" + "<th>" + element["PRENOM_UTILISATEUR"] + "</th> <th><button value = " + element["ID_UTILISATEUR"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_UTILISATEUR"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
+          ligne += "<tr><th>" + element["ID_ICAD"] + "</th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "</th> <th><button value = " + element["ID_UTILISATEUR"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_UTILISATEUR"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
 
       });
       donneeTable.innerHTML += ligne;
@@ -113,8 +113,9 @@
   function modifier(boutonModifier)
   {
 
-      console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être modifier !");
-      boutonModifier.style = "color:dark;background:green;";
+      //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être modifier !");
+      //boutonModifier.style = "color:dark;background:green;";
+      window.location.href = "modification/" + boutonModifier.value;
 
   }
 
