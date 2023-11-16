@@ -19,7 +19,7 @@ class Proprietaire extends BaseController
             "VILLE_PROPRIO" =>  $this ->request->getPost('ville'),
             "CP_PROPRIO" =>  $this ->request->getPost('code_postal'),
             "NO_TELEPHONE_PROPRIO" =>  $this ->request->getPost('phone')
-        ]
+        ];
         $registre = new proprio();
         $registre->insert($arr);
 
