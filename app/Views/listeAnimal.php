@@ -29,9 +29,9 @@
     <table>
       <thead>
       <tr>
-        <th>Nom</th><th>Prénom</th><th>eMail</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID</th><th>PRENOM</th><th>PRENOM</th><th>Modifier</th><th>Supprimer</th>
       </tr>
-        <th><input type="text" id="a" onchange="triTableau()"></th><th><input type="text" id="b" onchange="triTableau()"></th><th><input type="text" id="c" onchange="triTableau()"></th>
+        <th><input type="text" id="a" oninput="triTableau()"></th><th><input type="text" id="b" oninput="triTableau()"></th><th><input type="text" id="c" oninput="triTableau()"></th>
       </thead>
       <tbody id="donneeTable">
 
