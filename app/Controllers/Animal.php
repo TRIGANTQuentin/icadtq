@@ -21,6 +21,22 @@ class Animal extends BaseController
         $result['listeAnimal'] = $model->listeAnimal();
         return view("requeteListeAnimal", $result);
     }
+    
+    public function pageModification($id)
+    {
+        $model = model('App\Models\Animal');
+        $result['unAnimal'] = $model->unAnimal($id);
+        return view("modifierAnimal", $result);
+
+    }
+
+    public function bddModification()
+    {
+        $model = model('App\Models\Animal');
+        $result['unAnimal'] = $model->modificationUnAnimal();
+        redirect("/animal/liste_animal/");
+    }
+
 }
 
 ?>

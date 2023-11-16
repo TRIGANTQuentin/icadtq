@@ -42,8 +42,22 @@ class Animal extends Model
     public function listeAnimal()
     {
         $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,'SELECT * FROM utilisateur');
+        $result = mysqli_query($mysqli,'SELECT * FROM animal');
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
+    }
+
+    public function unAnimal($id)
+    {
+        $mysqli = mysqli_connect("localhost", "root", "", "icad1");
+        $result = mysqli_query($mysqli,"SELECT * FROM animal WHERE ID_ICAD = " . $id);
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $rows;
+    }
+
+    public function modifierUnAnimal()
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('animal');
     }
 }
