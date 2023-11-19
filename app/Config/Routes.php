@@ -35,7 +35,7 @@ $routes->get('/animal/historique/(:num)', 'Animal::pageHistorique/$1');
 
 //Page modification animal déclaré 
 $routes->get('/animal/modification/(:num)', 'Animal::pageModification/$1');
-$routes->post('/animal/modification/', 'Animal::bddModification');
+$routes->post('/animal/modification', 'Animal::bddModification');
 
 //Page nouvel animal 
 $routes->get('/animal/nouveau/', 'Animal::pageNouveau');

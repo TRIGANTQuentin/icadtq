@@ -55,9 +55,32 @@ class Animal extends Model
         return $rows;
     }
 
-    public function modifierUnAnimal()
+    public function modifierUnAnimal($nomImage)
     {
-        $db      = \Config\Database::connect();
-        $builder = $db->table('animal');
+        $db = \Config\Database::connect();
+        $requete = $db->table('animal');
+        $donnee =
+        [
+            "NOM_ANIMAL" => $_POST["nomAnimal"],
+            "DATE_NAISSANCE_ANIMAL" => $_POST["dateNaissanceAnimal"],
+            "ESPECE_ANIMAL" => $_POST["especeAnimal"],
+            "RACE_ANIMAL" => $_POST["raceAnimal"],
+            "SEXE_ANIMAL" => $_POST["sexeAnimal"],
+            "INFO_ANIMAL" => $_POST["infoAnimal"],
+            "IM_ANIMAL" => $nomImage
+
+        ];
+
+        $requete->where("ID_ICAD", $_POST["idAnimal"]);
+        $requete->update($donnee);
+        return true;
+    }
+
+    public function imageAnimal($id)
+    {
+        $mysqli = mysqli_connect("localhost", "root", "", "icad1");
+        $result = mysqli_query($mysqli,"SELECT IM_ANIMAL FROM animal WHERE ID_ICAD = " . $id);
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        return $rows;
     }
 }

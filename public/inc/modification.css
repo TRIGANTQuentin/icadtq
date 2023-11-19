@@ -1,0 +1,55 @@
+#modification-animal-contenu
+{
+    display : grid;
+    grid-template-columns: repeat(10,minmax(auto,1fr));
+    grid-template-rows: repeat(10,minmax(auto,1fr));
+    text-align: center;
+}
+
+#id-modification-animal
+{
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+#nom-modification-animal
+{
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+#date-modification-animal
+{
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
+#sexe-modification-animal
+{
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
+}
+
+#espece-modification-animal
+{
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+}
+
+#race-modification-animal
+{
+    grid-row: 4 / 5;
+    grid-column: 3 / 4;
+}
+
+#info-modification-animal
+{
+    grid-row: 5 / 6;
+    grid-column: 1 / 2;
+}
+
+#validation-modification-animal
+{
+    grid-row: 9 / 10;
+    grid-column: 1 / 3;
+}
