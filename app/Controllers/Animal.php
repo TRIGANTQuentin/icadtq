@@ -28,29 +28,29 @@ class Animal extends BaseController
     {
         $model = model('App\Models\Animal');
         $result['unAnimal'] = $model->unAnimal($id);
-        $result['imageAnimal'] = $model->imageAnimal($id);
-        $result['imageAnimal'] = $this->request->getFile($result['imageAnimal'][0]['IM_ANIMAL'])->getTempName();
+        $result['id'] = $id;
         return view("animal/modifierAnimal", $result);
 
     }
 
     public function bddModification()
     {
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
-
-        $img = $this->request->getFile('imageAnimal');
-
-        $filepath = WRITEPATH . 'uploads/' . $img->store('img/animal/', 'imgAnimalId' . $_POST['idAnimal'] . '.jpg' );
-
-        $data = ['uploaded_fileinfo' => new File($filepath)];
         
+
+            $config['upload_path']          = './uploads/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 100;
+            $config['max_width']            = 1024;
+            $config['max_height']           = 768;
+    
+            $img = $this->request->getFile('imageAnimal');
+    
+            $filepath =  $img->move( WRITEPATH . 'uploads/' .'img/animal/', 'imgAnimalId' . $_POST['idAnimal'] . '.jpg' , true);
+    
+            $data = ['uploaded_fileinfo' => new File($filepath)];
         
         $model = model('App\Models\Animal');
-        $result['unAnimal'] = $model->modifierUnAnimal($img->getName());
+        $result['unAnimal'] = $model->modifierUnAnimal();
         return redirect()->to('animal/liste_animal'); 
     }
 

@@ -6,8 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doscument</title>
+  <link rel="stylesheet" href="/inc/liste_animal.css">
+  <?php $this->endsection()?>
 </head>
-<?php $this->endsection()?>
+
 
 
 <body>
@@ -19,9 +21,9 @@
     <table>
       <thead>
       <tr>
-        <th>ID ICAD</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>IMAGE</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
       </tr>
-        <th><input type="text" id="id_icad_recherche" oninput="triTableau()"></th><th><input type="text" id="nom_animal_recherche" oninput="triTableau()"></th><th><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="espece_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="race_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="sexe_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="info_animal_recherche" oninput="triTableau()"></th>
+        <th><input type="text" id="id_icad_recherche" oninput="triTableau()"></th><th></th><th><input type="text" id="nom_animal_recherche" oninput="triTableau()"></th><th><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="espece_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="race_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="sexe_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="info_animal_recherche" oninput="triTableau()"></th><th></th><th></th>
       </thead>
       <tbody id="donneeTable">
 
@@ -56,8 +58,7 @@
       var donneeTable = document.getElementById("donneeTable");
       var ligne = "";
       donnee.forEach((element) => {
-
-          ligne += "<tr><th>" + element["ID_ICAD"] + "</th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
+          ligne += "<tr style='text-align:center; vertical-align:middle'><th>" + element["ID_ICAD"] + "</th>" + "<th><img class='imageTable' src= image/imgAnimalId" + element["ID_ICAD"] +'.jpg' + "></th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
 
       });
       donneeTable.innerHTML += ligne;

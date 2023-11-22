@@ -55,7 +55,7 @@ class Animal extends Model
         return $rows;
     }
 
-    public function modifierUnAnimal($nomImage)
+    public function modifierUnAnimal()
     {
         $db = \Config\Database::connect();
         $requete = $db->table('animal');
@@ -66,8 +66,7 @@ class Animal extends Model
             "ESPECE_ANIMAL" => $_POST["especeAnimal"],
             "RACE_ANIMAL" => $_POST["raceAnimal"],
             "SEXE_ANIMAL" => $_POST["sexeAnimal"],
-            "INFO_ANIMAL" => $_POST["infoAnimal"],
-            "IM_ANIMAL" => $nomImage
+            "INFO_ANIMAL" => $_POST["infoAnimal"]
 
         ];
 

@@ -14,7 +14,8 @@ $routes->get('/', 'Home::index');
 $routes->get('/inscription', 'Register::index');
 $routes->post('/inscription', 'Register::validation');
 
-
+//Utilisé pour afficher des images contenus dans un dossier privé (ex: images des animaux qui ne doivent pas être disponible pour tout le monde)
+$routes->get('animal/image/(:segment)', 'ImagesPrivates::animal/$1');
 
 //Page animal retrouvé (sans authentification)
 $routes->get('/animal/retrouve', 'Animal::pageRetrouve');

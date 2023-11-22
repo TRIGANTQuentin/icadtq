@@ -14,12 +14,17 @@
 <?php $this->section('header')?>
 <?php $this->endsection()?>
 <?php $this->section('content')?>
-<?php var_dump($imageAnimal);
-?>
+
+<?php ;?>
 
     <form action="/animal/modification" method="post" enctype="multipart/form-data">
     <div id="modification-animal-contenu">
+    <div id="div-image-modification-animal">
+    <img id="image-modification-animal"src="<?= site_url('animal/image/imgAnimalId'. $id .'.jpg') ?>">
+    </div>
+    <div id="div-file-image-modification-animal">
     <input type="file" name="imageAnimal" id="imageAnimal">
+    </div>
     <div id="id-modification-animal"><a>Id</a>
     <input type="text" id ="idAnimal" readonly name ="idAnimal" value=  <?php echo $unAnimal[0]["ID_ICAD"];?>></div>
 
@@ -41,7 +46,7 @@
     <div id="info-modification-animal" ><a>Info</a>
     <textarea id="infoAnimal" name="infoAnimal"> <?php echo $unAnimal[0]["INFO_ANIMAL"];?> </textarea></div>
 
-    <input id="validation-modification-animal" type="submit" value="upload">
+    <input id="validation-modification-animal" type="submit" value="Valider la modification">
     <div> 
     </form>
 
