@@ -90,7 +90,8 @@ class Animal extends Model
             'ESPECE_ANIMAL' => $_POST['espece'],
             'RACE_ANIMAL' => $_POST['race'],
             'INFO_ANIMAL' => $_POST['message'],
-            'ID_PROPRIO' => 1
+            'ID_PROPRIO' => $_POST['proprio']
+
 
                 
         ];

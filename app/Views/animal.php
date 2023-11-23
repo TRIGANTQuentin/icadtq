@@ -4,14 +4,12 @@
     <link href="inc/register.css" rel="stylesheet">
 </head>
 <html>
-    <body>
+<form action="", method="POST">
     <div class="container">
-    </div>
-    <form action="nouveau" method="post">
-    
 
-        <h1>Inscription</h1>
-        <h2>Remplissez ce formulaire pous vous inscrire</h2>
+        <h1>Nouveau</h1>
+        <h2>Remplissez ce formulaire pous ajouter un animal</h2>
+        <hr>
 
         <label for="nom"><b>Nom</b></label>
         <input type="text" placeholder="Entrer name" name="name" id="name" required>
@@ -30,6 +28,20 @@
 
         <label for="race"><b>Race</b></label>
         <input type="text" placeholder="Entrer race" name="race" id="race" required>
+
+
+        <label for="pet-select">Sélectionnez un propriétaire:</label>
+
+        <select name="proprio" id="proprio">
+        <option value="">Choisissez un propriétaire</option>
+        <option value="1">lolo</option>
+        <option value="2">lolo</option>
+        <option value="3">Hamster</option>
+        <option value="4">Parrot</option>
+        <option value="5">lolo</option>
+        <option value="6">lolo</option>
+        </select>
+
 
 
         <label for="date">Entrer la date:</label>

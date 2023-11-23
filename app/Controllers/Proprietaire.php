@@ -25,7 +25,9 @@ class Proprietaire extends BaseController
 
         //echo json_encode($arr);
         //return ;
-        return redirect() -> back();
+        return redirect() -> back()
+;
+        
     }
 
     public function modifier(){

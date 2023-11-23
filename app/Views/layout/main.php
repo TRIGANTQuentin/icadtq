@@ -29,6 +29,8 @@
 <?php $this->renderSection("css"); ?>
 <!-- import du css general du site -->
 <link rel="stylesheet" href="/inc/main.css">
+<!-- SECTION SESSION -->
+<?php session_start(); ?>
 
 <!-- SECTION HEADER -->
 <?php $this->renderSection("header"); ?>
