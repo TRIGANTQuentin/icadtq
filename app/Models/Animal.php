@@ -42,7 +42,7 @@ class Animal extends Model
     public function listeAnimal()
     {
         $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,'SELECT * FROM utilisateur');
+        $result = mysqli_query($mysqli,"SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, espece_animal.nom AS 'ESPECE_ANIMAL' , sexe_animal.nom AS 'SEXE_ANIMAL' FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.id JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.id JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO");
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
     }
@@ -52,7 +52,7 @@ class Animal extends Model
     public function unAnimal($id)
     {
         $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,"SELECT * FROM animal WHERE ID_ICAD = " . $id);
+        $result = mysqli_query($mysqli,"SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, espece_animal.nom AS 'ESPECE_ANIMAL' , sexe_animal.nom AS 'SEXE_ANIMAL' FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.id JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.id JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO WHERE ID_ICAD = " . $id);
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
     }
@@ -69,23 +69,18 @@ class Animal extends Model
             "RACE_ANIMAL" => $_POST["raceAnimal"],
             "SEXE_ANIMAL" => $_POST["sexeAnimal"],
             "INFO_ANIMAL" => $_POST["infoAnimal"]
-
         ];
 
         $requete->where("ID_ICAD", $_POST["idAnimal"]);
         $requete->update($donnee);
+
+        $requete = $db->table('historique');
+        $requete->insert(["ID_ICAD" => $_POST["idAnimal"], "ETAT" => "Modification" ]);
         return true;
     }
-
-    public function imageAnimal($id)
-    {
-        $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,"SELECT IM_ANIMAL FROM animal WHERE ID_ICAD = " . $id);
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        return $rows;
-    }
+    
     public function nouvelanimal(){
-        $db = \Config\Databases::connect();
+        $db = \Config\Database::connect();
         $requete = $db -> table ('animal');
         $data = [
             
@@ -94,14 +89,14 @@ class Animal extends Model
             'SEXE_ANIMAL' => $_POST['sexe'] ,
             'ESPECE_ANIMAL' => $_POST['espece'],
             'RACE_ANIMAL' => $_POST['race'],
-            'INFO_ANIMAL' => $_POST['message']
-
+            'INFO_ANIMAL' => $_POST['message'],
+            'ID_PROPRIO' => 1
 
                 
         ];
         $requete -> insert($data);
-        $requete -> insert($data, false);
-        $requete -> getInsertID();
+        //$requete -> insert($data, false);
+        //$requete -> getInsertID();
     }
 
 

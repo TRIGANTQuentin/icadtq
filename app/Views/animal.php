@@ -4,12 +4,14 @@
     <link href="inc/register.css" rel="stylesheet">
 </head>
 <html>
-<form action="/animal/nouveau/", method="POST">
+    <body>
     <div class="container">
+    </div>
+    <form action="nouveau" method="post">
+    
 
         <h1>Inscription</h1>
         <h2>Remplissez ce formulaire pous vous inscrire</h2>
-        <hr>
 
         <label for="nom"><b>Nom</b></label>
         <input type="text" placeholder="Entrer name" name="name" id="name" required>
@@ -33,10 +35,9 @@
         <label for="date">Entrer la date:</label>
         <input type="date" id="date" name="date" id="date" required/>
 
-        <br><br>
-
-        <button type="submit" class="registerbtn">Envoyer</button>
-    </div>
-</form>
+        <input type="submit">
+    
+    </form>
+</body>
 
 </html>

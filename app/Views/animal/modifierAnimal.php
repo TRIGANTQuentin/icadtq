@@ -12,7 +12,10 @@
 </head>
 <body>
 <?php $this->section('header')?>
-<?php $this->endsection()?>
+<?php $this->endsection()
+//<input type="text" id ="sexeAnimal" name ="sexeAnimal" value=  <?php echo $unAnimal[0]["SEXE_ANIMAL"];
+//<input type="text" id ="especeAnimal" name ="especeAnimal" value=  <?php echo $unAnimal[0]["ESPECE_ANIMAL"];?>>?>>
+?>
 <?php $this->section('content')?>
 
 <?php ;?>
@@ -35,10 +38,12 @@
     <input type="date" id ="dateDeNaissanceAnimal" name ="dateNaissanceAnimal" value=  <?php echo $unAnimal[0]["DATE_NAISSANCE_ANIMAL"];?>></div>
 
     <div id="sexe-modification-animal" ><a>Sexe</a>
-    <input type="text" id ="sexeAnimal" name ="sexeAnimal" value=  <?php echo $unAnimal[0]["SEXE_ANIMAL"];?>></div>
+    <select name ="sexeAnimal" ><option value=1>Masculin</option><option value=2>Féminin</option></select>
+    </div>
 
     <div id="espece-modification-animal" ><a>Espèce</a>
-    <input type="text" id ="especeAnimal" name ="especeAnimal" value=  <?php echo $unAnimal[0]["ESPECE_ANIMAL"];?>></div>
+    <select name ="especeAnimal"><option value=1>Chien</option><option value=2>Chat</option><option value=3>Furet</option></select>
+    </div>
 
     <div id="race-modification-animal" ><a>Race</a>
     <input type="text" id ="raceAnimal" name ="raceAnimal" value=  <?php echo $unAnimal[0]["RACE_ANIMAL"];?>></div>
