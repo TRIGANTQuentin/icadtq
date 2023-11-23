@@ -58,7 +58,7 @@ class Animal extends BaseController
     {
         $model = model('App\Models\Animal');
         $model->nouvelanimal();
-        redirect()->to ("/animal/liste_animal/");
+        return redirect()->to ("/animal/liste_animal/");
     }
 
 }

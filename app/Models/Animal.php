@@ -85,7 +85,7 @@ class Animal extends Model
         return $rows;
     }
     public function nouvelanimal(){
-        $db = \Config\Databases::connect();
+        $db = \Config\Database::connect();
         $requete = $db -> table ('animal');
         $data = [
             
@@ -94,7 +94,8 @@ class Animal extends Model
             'SEXE_ANIMAL' => $_POST['sexe'] ,
             'ESPECE_ANIMAL' => $_POST['espece'],
             'RACE_ANIMAL' => $_POST['race'],
-            'INFO_ANIMAL' => $_POST['message']
+            'INFO_ANIMAL' => $_POST['message'],
+            'ID_PROPRIO' => $_POST['proprio']
 
 
                 

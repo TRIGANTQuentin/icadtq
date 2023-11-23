@@ -44,7 +44,7 @@ $routes->post('/animal/nouveau/', 'Animal::bddNouveau');
 
 //Page perte/vol animal 
 $routes->get('/animal/perte/(:num)', 'Animal::pagePerteVol/$1');
-$routes->post('/animal/perte/)', 'Animal::bddPerteVol');
+$routes->post('/animal/perte/', 'Animal::bddPerteVol');
 
 //Page informations propriétaire sélectionné
 $routes->get('/proprietaire/information/(:num)', 'Proprietaire::information/$1');
