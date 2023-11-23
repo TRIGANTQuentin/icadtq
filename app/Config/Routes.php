@@ -14,6 +14,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/inscription', 'Register::index');
 $routes->post('/inscription', 'Register::validation');
 
+
 //Utilisé pour afficher des images contenus dans un dossier privé (ex: images des animaux qui ne doivent pas être disponible pour tout le monde)
 $routes->get('animal/image/(:segment)', 'ImagesPrivates::animal/$1');
 
@@ -34,6 +35,7 @@ $routes->get('/animal/liste_animal', 'Animal::pageListe');
 //Page historique déclaration d'un animal de la liste
 $routes->get('/animal/historique/(:num)', 'Animal::pageHistorique/$1');
 
+
 //Page modification animal déclaré 
 $routes->get('/animal/modification/(:num)', 'Animal::pageModification/$1');
 $routes->post('/animal/modification', 'Animal::bddModification');
@@ -42,9 +44,14 @@ $routes->post('/animal/modification', 'Animal::bddModification');
 $routes->get('/animal/nouveau/', 'Animal::pageNouveau');
 $routes->post('/animal/nouveau/', 'Animal::bddNouveau');
 
+//Page nouveau propriétaire
+$routes->get('/proprio/nouveau', 'Proprietaire::index');
+$routes->post('/proprio/nouveau', 'Proprietaire::ajouter');
+
 //Page perte/vol animal 
 $routes->get('/animal/perte/(:num)', 'Animal::pagePerteVol/$1');
-$routes->post('/animal/perte/)', 'Animal::bddPerteVol');
+$routes->post('/animal/perte/', 'Animal::bddPerteVol');
+
 
 //Page informations propriétaire sélectionné
 $routes->get('/proprietaire/information/(:num)', 'Proprietaire::information/$1');
@@ -52,9 +59,6 @@ $routes->get('/proprietaire/information/(:num)', 'Proprietaire::information/$1')
 //Page liste et informations propriétaires
 $routes->get('/proprietaire/liste/', 'Proprietaire::pageListe');
 
-//Page nouveau propriétaire
-$routes->get('proprio/nouveau', 'Proprietaire::index');
-$routes->post('proprio/nouveau', 'Proprietaire::ajouter');
 
 //Page modification propriétaire
 $routes->get('/proprietaire/modification/(:num)', 'Proprietaire::pageModification/$1');
