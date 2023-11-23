@@ -54,6 +54,13 @@ class Animal extends BaseController
         return redirect()->to('animal/liste_animal'); 
     }
 
+    public function bddNouveau()
+    {
+        $model = model('App\Models\Animal');
+        $model->nouvelanimal();
+        redirect()->to ("/animal/liste_animal/");
+    }
+
 }
 
 ?>
