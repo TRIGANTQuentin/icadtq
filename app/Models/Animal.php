@@ -42,10 +42,12 @@ class Animal extends Model
     public function listeAnimal()
     {
         $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,'SELECT * FROM animal');
+        $result = mysqli_query($mysqli,'SELECT * FROM utilisateur');
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
     }
+
+    
 
     public function unAnimal($id)
     {
@@ -82,4 +84,26 @@ class Animal extends Model
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
     }
+    public function nouvelanimal(){
+        $db = \Config\Databases::connect();
+        $requete = $db -> table ('animal');
+        $data = [
+            
+            'NOM_ANIMAL' => $_POST['name'],
+            'DATE_NAISSANCE_ANIMAL' => $_POST['date'],
+            'SEXE_ANIMAL' => $_POST['sexe'] ,
+            'ESPECE_ANIMAL' => $_POST['espece'],
+            'RACE_ANIMAL' => $_POST['race'],
+            'INFO_ANIMAL' => $_POST['message']
+
+
+                
+        ];
+        $requete -> insert($data);
+        $requete -> insert($data, false);
+        $requete -> getInsertID();
+    }
+
+
+
 }
