@@ -17,7 +17,7 @@ class proprio extends Model
         "NOM_PROPRIO",
         "PRENOM_PROPRIO",
         "EMAIL_PROPRIO",
-        "ADRESSE_PROPRIO",
+        "ADRESSE__PROPRIO",
         "NO_TELEPHONE_PROPRIO",
         "VILLE_PROPRIO",
         "CP_PROPRIO",
