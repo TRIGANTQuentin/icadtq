@@ -115,8 +115,9 @@
   function supprimer(boutonModifier)
   {
 
-      console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
-      boutonModifier.style = "color:dark;background:red;";
+      //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
+      //boutonModifier.style = "color:dark;background:red;";
+      window.location.href = "modification/" + boutonModifier.value;
 
   }
 

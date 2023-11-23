@@ -50,8 +50,8 @@ class Animal extends BaseController
             $data = ['uploaded_fileinfo' => new File($filepath)];
         
         $model = model('App\Models\Animal');
-        $result['unAnimal'] = $model->modificationUnAnimal();
-        redirect("/animal/liste_animal/");
+        $result['unAnimal'] = $model->modifierUnAnimal();
+        return redirect()->to('animal/liste_animal'); 
     }
 
 }
