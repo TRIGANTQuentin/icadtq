@@ -4,16 +4,24 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Animal extends Model
+class proprio extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'icad1';
-    protected $primaryKey       = 'id';
+    protected $table            = 'proprietaire';
+    protected $primaryKey       = 'ID_PROPRIO';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        "NOM_PROPRIO",
+        "PRENOM_PROPRIO",
+        "EMAIL_PROPRIO",
+        "ADRESSE_PROPRIO",
+        "NO_TELEPHONE_PROPRIO",
+        "VILLE_PROPRIO",
+        "CP_PROPRIO",
+    ];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,26 +46,4 @@ class Animal extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function listeAnimal()
-    {
-        $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,'SELECT * FROM animal');
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        return $rows;
-    }
-
-    public function unAnimal($id)
-    {
-        $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,"SELECT * FROM animal WHERE ID_ICAD = " . $id);
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        return $rows;
-    }
-
-    public function modifierUnAnimal()
-    {
-        $db      = \Config\Database::connect();
-        $builder = $db->table('animal');
-    }
 }

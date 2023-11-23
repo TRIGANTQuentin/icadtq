@@ -14,6 +14,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/inscription', 'Register::index');
 $routes->post('/inscription', 'Register::validation');
 
+//Utilisé pour afficher des images contenus dans un dossier privé (ex: images des animaux qui ne doivent pas être disponible pour tout le monde)
+$routes->get('animal/image/(:segment)', 'ImagesPrivates::animal/$1');
+
 //Page animal retrouvé (sans authentification)
 $routes->get('/animal/retrouve', 'Animal::pageRetrouve');
 $routes->post('/animal/retrouve', 'Animal::bddRetrouve');
@@ -33,7 +36,7 @@ $routes->get('/animal/historique/(:num)', 'Animal::pageHistorique/$1');
 
 //Page modification animal déclaré 
 $routes->get('/animal/modification/(:num)', 'Animal::pageModification/$1');
-$routes->post('/animal/modification/', 'Animal::bddModification');
+$routes->post('/animal/modification', 'Animal::bddModification');
 
 //Page nouvel animal 
 $routes->get('/animal/nouveau/', 'Animal::pageNouveau');
@@ -50,8 +53,8 @@ $routes->get('/proprietaire/information/(:num)', 'Proprietaire::information/$1')
 $routes->get('/proprietaire/liste/', 'Proprietaire::pageListe');
 
 //Page nouveau propriétaire
-$routes->get('/proprietaire/nouveau/', 'Proprietaire::pageNouveau');
-$routes->post('/proprietaire/nouveau/', 'Proprietaire::bddNouveau');
+$routes->get('proprio/nouveau', 'Proprietaire::index');
+$routes->post('proprio/nouveau', 'Proprietaire::ajouter');
 
 //Page modification propriétaire
 $routes->get('/proprietaire/modification/(:num)', 'Proprietaire::pageModification/$1');

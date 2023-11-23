@@ -1,13 +1,14 @@
+<html>
 <head>
     <meta charset="utf-8">
-    <title>Inscription</title>
+    <base href="<?= base_url() ?>" />
+    <title>Nouveau propriétaire</title>
     <link href="inc/register.css" rel="stylesheet">
 </head>
-<html>
 <form action="", method="POST">
     <div class="container">
-        <h1>Inscription</h1>
-        <h2>Remplissez ce formulaire pous vous inscrire</h2>
+        <h1>Nouveau Propriétaire</h1>
+        <h2>Remplissez ce formulaire pour renseigner un nouveau propriétaire</h2>
         <hr>
 
         <label for="email"><b>Email</b></label>
@@ -19,18 +20,7 @@
         <label for="prenom"><b>Prenom</b></label>
         <input type="text" placeholder="Entrer Prenom" name="prenom" id="prenom" required>
 
-        <label for="fonction">fonction exercée:</label>
-
-        <select name="fonction" id="fonction">
-            <option value="">--Choisissez une option--</option>
-            <option value="Vétérinaire">Vétérinaire</option>
-            <option value="Policier">Policier</option>
-            <option value="Fourrière">Fourrière</option>
-            <option value="éleveur">éleveur</option>
-        </select>
-        <br><br>
-
-
+        
         <label for="adresse"><b>Adresse</b></label>
         <input type="text" placeholder="Entrer Adresse" name="adresse" id="adresse" required>
 
@@ -46,18 +36,8 @@
 
         <br><br>
 
-
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Entrer Password" name="psw" id="psw" required>
-
-
-        <label for="psw-repeat"><b>Repeat Password</b></label>
-        <input type="password" placeholder="repeter Password" name="psw-repeat" id="psw-repeat" required>
-        <hr>
-
         <button type="submit" class="registerbtn">Register</button>
+
     </div>
 </form>
-
 </html>

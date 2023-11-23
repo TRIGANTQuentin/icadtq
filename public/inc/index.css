@@ -1,0 +1,57 @@
+#accueil-menu-index
+{
+    display : grid;
+    grid-template-columns: repeat(30,minmax(auto,1fr));
+    grid-template-rows: repeat(11,minmax(auto,1fr));
+    text-align: center;
+}
+
+#retrouve-animal-title-menu
+{
+    top: 50%;
+    left: 50%;
+}
+
+#retrouve-animal-div-menu
+{
+    grid-row: 2 / 4;
+    grid-column: 12 / 18;
+}
+
+#liste-animal-div-menu
+{
+    
+    grid-row: 5 / 8;
+    grid-column: 6 / 10;
+
+}
+
+#nouvel-animal-div-menu
+{
+    
+    grid-row: 5 / 8;
+    grid-column: 13 / 17;
+
+}
+
+#perdu-animal-div-menu
+{
+    
+    grid-row: 5 / 8;
+    grid-column: 20 / 24;
+
+}
+
+#nouveau-proprietaire-div-menu
+{
+    
+    grid-row: 9 / 12;
+    grid-column: 13 / 17;
+
+}
+
+.image-menu-accueil
+{
+    max-height: 100%;
+    max-width: 100%;
+}
