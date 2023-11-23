@@ -33,8 +33,8 @@ class Animal extends BaseController
     public function bddModification()
     {
         $model = model('App\Models\Animal');
-        $result['unAnimal'] = $model->modificationUnAnimal();
-        redirect("/animal/liste_animal/");
+        $model->modifierUnAnimal();
+        return view("listeAnimal");
     }
 
 }

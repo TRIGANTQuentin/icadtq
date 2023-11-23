@@ -57,7 +57,19 @@ class Animal extends Model
 
     public function modifierUnAnimal()
     {
-        $db      = \Config\Database::connect();
-        $builder = $db->table('animal');
+        $db  = \Config\Database::connect();
+        $requete = $db->table('animal');
+        $donneeAnimal = [
+            'NOM_ANIMAL' => $_POST["nomAnimal"],
+            'SEXE_ANIMAL' => $_POST["sexeAnimal"],
+            'DATE_NAISSANCE_ANIMAL' => $_POST["dateDeNaissanceAnimal"],
+            'ESPECE_ANIMAL' => $_POST["especeAnimal"],
+            'RACE_ANIMAL' => $_POST["raceAnimal"],
+            'INFO_ANIMAL' => $_POST["infoAnimal"]
+
+        ];
+        $requete->update($donneeAnimal);
+
+
     }
 }

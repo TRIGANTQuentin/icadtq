@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <form action="/animal/modification/" method="post">
+    <form action="/animal/modification" method="post">
     <div><a>Nom</a>
     <input type="text" id ="idAnimal" readonly name ="idAnimal" value=  <?php echo $unAnimal[0]["ID_ICAD"];?>></div>
 
@@ -15,7 +15,7 @@
     <input type="text" id ="nomAnimal" name ="nomAnimal" value=  <?php echo $unAnimal[0]["NOM_ANIMAL"];?>></div>
 
     <div><a>Date de naissance</a>
-    <input type="date" id ="dateDeNaissanceAnimal" name ="dateDeNaissanceAnima" value=  <?php echo $unAnimal[0]["DATE_NAISSANCE_ANIMAL"];?>></div>
+    <input type="date" id ="dateDeNaissanceAnimal" name ="dateDeNaissanceAnimal" value=  <?php echo $unAnimal[0]["DATE_NAISSANCE_ANIMAL"];?>></div>
 
     <div><a>Sexe</a>
     <input type="text" id ="sexeAnimal" name ="sexeAnimal" value=  <?php echo $unAnimal[0]["SEXE_ANIMAL"];?>></div>

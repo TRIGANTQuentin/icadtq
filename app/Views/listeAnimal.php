@@ -29,9 +29,9 @@
     <table>
       <thead>
       <tr>
-        <th>ID ICAD</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>SEXE</th><th>RACE</th><th>ESPECE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
       </tr>
-        <th><input type="text" id="a" oninput="triTableau()"></th><th><input type="text" id="b" oninput="triTableau()"></th><th><input type="text" id="c" oninput="triTableau()"></th>
+        <th><input type="text" id="a" oninput="triTableau()"></th><th><input type="text" id="b" oninput="triTableau()"></th><th><input type="text" id="c" oninput="triTableau()"></th><th><input type="text" id="d" oninput="triTableau()"></th><th><input type="text" id="e" oninput="triTableau()"></th><th><input type="text" id="f" oninput="triTableau()"></th><th><input type="text" id="g" oninput="triTableau()"></th>
       </thead>
       <tbody id="donneeTable">
 
@@ -65,7 +65,7 @@
       var ligne = "";
       donnee.forEach((element) => {
 
-          ligne += "<tr><th>" + element["ID_ICAD"] + "</th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "</th> <th><button value = " + element["ID_UTILISATEUR"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_UTILISATEUR"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
+          ligne += "<tr><th>" + element["ID_ICAD"] + "</th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["ESPECE_ANIMAL"] + "<th>" + element["INFO_ANIMAL"] + "</th>" + "</th>" + "<th><button value = " + element["ID_UTILISATEUR"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_UTILISATEUR"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
 
       });
       donneeTable.innerHTML += ligne;
@@ -100,8 +100,9 @@
 
   function valideModificationTableau(element)
   {
-    inputTableau = [document.getElementById("a"), document.getElementById("b"), document.getElementById("c")]
-    if(element["ID_UTILISATEUR"].toUpperCase().startsWith(inputTableau[0].value.toUpperCase()) && element["NOM_UTILISATEUR"].toUpperCase().startsWith(inputTableau[1].value.toUpperCase()) && element["PRENOM_UTILISATEUR"].toUpperCase().startsWith(inputTableau[2].value.toUpperCase()))
+    console.log(element);
+    inputTableau = [document.getElementById("a"), document.getElementById("b"), document.getElementById("c"), document.getElementById("d") , document.getElementById("e") , document.getElementById("f") , document.getElementById("g")]
+    if(element["ID_ICAD"].toUpperCase().startsWith(inputTableau[0].value.toUpperCase()) && element["NOM_ANIMAL"].toUpperCase().startsWith(inputTableau[1].value.toUpperCase()) && element["DATE_NAISSANCE_ANIMAL"].toUpperCase().startsWith(inputTableau[2].value.toUpperCase()) && element["SEXE_ANIMAL"].toUpperCase().startsWith(inputTableau[3].value.toUpperCase()))
     {
         return true;
     }
