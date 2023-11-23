@@ -20,10 +20,17 @@ class register extends BaseController
             "VILLE_UTILISATEUR" =>  $this ->request->getPost('ville'),
             "CP_UTILISATEUR" =>  $this ->request->getPost('code_postal'),
             "NO_TELEPHONE_UTILISATEUR" =>  $this ->request->getPost('phone'),
-            "MDP_HASH_UTILISATEUR" =>  $this ->request->getPost('psw'),
+            "MDP_HASH_UTILISATEUR" =>  password_hash($this ->request->getPost('psw') , PASSWORD_BCRYPT),
         ];
         $registre = new Utilisateur();
         $registre->insert($arr);
+
+        //echo json_encode($arr);
+        //return ;
         return redirect() -> back();
+    }
+
+    public function modifier(){
+        
     }
 }

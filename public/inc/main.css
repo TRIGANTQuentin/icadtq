@@ -1,0 +1,235 @@
+/* CSS GENERAL DU SITE */
+body {
+    
+    /* COULEUR DE FOND */
+    background-color: whitesmoke;
+    /* IMAGE DE FOND */
+    /*background-image: url("/img/back2.jpg"); */
+    /* CREATION DU DECOUPAGE DE LA PAGE*/
+    display : grid;
+    grid-template-columns: repeat(10,minmax(auto,10%)); /* DECOUPAGE DE LA PAGE EN 10 COLONNES */
+    grid-template-rows: repeat(10,minmax(auto,10%));  /* DECOUPAGE DE LA PAGE EN 10 LIGNES */
+    /* BORD DE LA PAGE */
+    margin: 0;
+    margin: 1%;
+
+}
+
+/* VARIABLES */
+:root
+{
+    --menu: 50px;
+    --fond-menu: #D70048;
+    --fond-menu-deroulant: #D70048;
+    --couleur-texte-menu: whitesmoke; 
+    
+}
+/* PARTIE DE L'EN-TETE */
+/* --------------------------------------------------------------------------- */
+header{
+    text-align:center;
+
+    grid-row: 1 / 2;
+    grid-column: 1 / 11;
+
+    /*background-color: black;*/ /*#c2a77e*/
+    /*opacity: 0.5;*/
+
+    display: grid;
+    grid-template-columns: repeat(10,minmax(auto,10%));
+    grid-template-rows: repeat(10,minmax(auto,10%));
+}
+
+#icad-img-menu
+{
+    grid-row: 1 / 10;
+    grid-column: 1 / 3;
+    max-height: 100%;
+    max-width: 100%;
+}
+/* CONTENEUR DE LA LISTE QUI REGROUPE LES PARTIES ANIMAL ET PROPRIETAIRE */
+.menu
+{
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    grid-row: 3 / 8;
+    grid-column: 4 / 7;
+    
+
+    
+}
+
+/* LISTE QUI REGROUPE LES PARTIES ANIMAL ET PROPRIETAIRE */
+.liste-menu
+{
+    text-align: center;
+    height: var(--menu);
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+
+    
+}
+
+/* PARTIE ANIMAL ET PARTIE PROPRIETAIRE*/
+.partie-menu
+{
+    
+    background-color: var(--fond-menu);
+    position:relative;
+}
+
+/* TITRE PARTIE ANIMAL ET PARTIE PROPRIETAIRE */
+.titre-partie-menu
+{
+    position: absolute;
+    color: var(--couleur-texte-menu);
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+}
+
+.titre-partie-menu::after
+{
+    content: "--";
+    margin-left: 3px;
+    display:inline-block;
+    animation: rotationBarreMenu 0.2s linear forwards;
+}
+
+.sous-partie-menu
+{
+    margin-top: var(--menu);
+    width: 100%;
+    text-align: left;
+    background-color: var(--fond-menu-deroulant);
+    
+    border-radius: 2px;
+    overflow: hidden;
+    max-height: 0;
+}
+.element-menu
+{
+    list-style-type: none;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+    align-items: center;
+    display: flex;
+}
+
+.lien-element
+{
+    color: var(--couleur-texte-menu);
+}
+
+.sous-partie-menu > .element-menu:hover
+{
+    background-color: #dd1256b0;
+    
+}
+
+.sous-partie-menu > .element-menu:hover > .lien-element
+{
+    color: var(--couleur-texte-menu);
+}
+
+@keyframes rotationBarreMenu
+{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(450deg);
+    }
+}
+
+.partie-menu:hover > .titre-partie-menu:after
+{
+    animation: rotationBarreMenu 0.5s linear;
+}
+
+@keyframes deroulementMenu
+{
+    0%{
+        box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 0);
+        border-top: 3px solid var(--fond-menu-deroulant) ;
+    }
+    30%{
+        box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 3);
+    }
+    100%{
+        max-height: 50em;
+        border-top: 3px solid var(--fond-menu-deroulant) ;
+        box-shadow: 0px 3px 3px 1px rgba(0, 0, 0, 3);
+    }
+}
+
+.partie-menu:hover > .sous-partie-menu
+{
+    animation: deroulementMenu 1s forwards;
+}
+
+/* PARTIE ACCUEIL DU MENU */
+#accueil-menu
+{
+    text-align: center;
+    
+    background-color: var(--fond-menu);
+    grid-row: 3 / 8;
+    grid-column: 3 / 4;
+    
+
+}
+
+.lien-menu
+{
+    text-decoration: none;
+    color: var(--couleur-texte-menu);
+
+}
+
+/* --------------------------------------------------------------------------- */
+/* FIN DE LA PARTIE DE L'EN-TETE */
+
+/* CSS POUR LE CONTENU */
+/* --------------------------------------------------------------------------- */
+/* CSS GLOBAL POUR LES PAGES */
+
+/* POUR LES TABLEAUX */
+table, #donneeTable, th {
+    border: 1px solid black;
+  }
+
+  
+  .div-table {
+    overflow: auto;
+  }
+
+/* --------------------------------------------------------------------------- */
+/* FIN DE LA PARTIE DU CONTENU */
+
+
+
+
+
+footer{text-align:center;
+    
+    grid-row: 10 / 11;
+    grid-column: 1 / 11;
+
+    /*background-color: darkslategray;*/
+    /*opacity: 0.5;*/
+}
+
+.content{
+    grid-row: 2 / 10;
+    grid-column: 1 / 11;
+    margin: 1%;
+    display:flex;
+}
