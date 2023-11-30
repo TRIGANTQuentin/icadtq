@@ -68,8 +68,7 @@ class Utilisateur extends Model
             $row = $resultat->getRowArray();
             if ($mdp == $row['MDP_UTILISATEUR_HASH'])
             {
-                session_start();
-                $_SESSION['id'] = $row['ID_UTILISATEUR'];
+                session() -> set(['id' =>  $row['ID_UTILISATEUR']]);
                 return true;
             }
             else 

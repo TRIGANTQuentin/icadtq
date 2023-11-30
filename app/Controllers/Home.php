@@ -6,8 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        session_start();
-        if (empty($_SESSION['connecter']))
+        if (empty(session()-> get['connecter']))
         {
             return view('menu-non-connecter');
         }
@@ -25,8 +24,7 @@ class Home extends BaseController
         $validation = $model->loginValide();
          if ($validation)
          {
-            session_start();
-            $_SESSION['connecter'] = true;
+            session() ->set(['connecter' => true]);
             return view('index');
          }
          else
@@ -38,8 +36,7 @@ class Home extends BaseController
 
     public function deconnexion()
     {
-        session_start();
-        session_destroy();
+        session() -> set('');
         return $this->index();
     }
 }
