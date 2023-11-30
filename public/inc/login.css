@@ -1,0 +1,32 @@
+body 
+{
+     /* COULEUR DE FOND */
+     background-color: whitesmoke;
+     /* CREATION DU DECOUPAGE DE LA PAGE*/
+     display : grid;
+     grid-template-columns: repeat(10,minmax(auto,10%)); /* DECOUPAGE DE LA PAGE EN 10 COLONNES */
+     grid-template-rows: repeat(10,minmax(auto,10%));  /* DECOUPAGE DE LA PAGE EN 10 LIGNES */
+     /* BORD DE LA PAGE */
+     margin: 0;
+     margin: 1%;
+
+}
+
+header
+{
+    grid-row: 1 / 5;
+    grid-column: 1 / 3;
+
+}
+
+#icad-img-menu
+{
+    width: 100%;
+    height: 100%;
+}
+
+#login-form
+{
+    grid-row: 7 / 9;
+    grid-column: 1 / 5;
+}

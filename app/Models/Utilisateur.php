@@ -48,4 +48,36 @@ class Utilisateur extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function loginValide()
+    {
+        $db = \Config\Database::connect();
+        $requete = $db->table('utilisateur');
+
+        $email = $_POST['email-utilisateur'];
+        $mdp = $_POST['mdp-utilisateur'];
+
+        $resultat = $db->query("SELECT EMAIL_UTILISATEUR, MDP_UTILISATEUR_HASH, ID_UTILISATEUR FROM utilisateur WHERE EMAIL_UTILISATEUR = '" . $email . "' ;");
+
+        if (empty($resultat->getRow()))
+        {
+            return false;
+        }
+        else
+        {
+            $row = $resultat->getRowArray();
+            if ($mdp == $row['MDP_UTILISATEUR_HASH'])
+            {
+                session_start();
+                $_SESSION['id'] = $row['ID_UTILISATEUR'];
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
+    }
 }
+

@@ -24,13 +24,10 @@
                     debut après le </body> / juste avant le </html>
 
 -->
-
 <!-- SECTION CSS -->
 <?php $this->renderSection("css"); ?>
 <!-- import du css general du site -->
 <link rel="stylesheet" href="/inc/main.css">
-<!-- SECTION SESSION -->
-<?php session_start(); ?>
 
 <!-- SECTION HEADER -->
 <?php $this->renderSection("header"); ?>
@@ -48,6 +45,9 @@
 </ul>
 </nav>
 <div id="accueil-menu" ><p><a href="/" class="lien-menu" >Accueil</a></p></div> <!-- début de la partie accueil du menu -->
+<form action="/deconnexion" method="POST">
+    <input type="submit" value="Deconnexion" />
+</form>
 </header>
 <!-- fin en-tête du site -->
 

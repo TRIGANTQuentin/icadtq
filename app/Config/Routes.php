@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 
 //Page accueil
 $routes->get('/', 'Home::index');
+//$routes->get('/', 'Home::pageConnexion');
 
 //Page local pour création de compte
 $routes->get('/inscription', 'Register::index');
@@ -28,6 +29,9 @@ $routes->get('/animal/requete', 'Animal::listeAnimal');
 //Page pour connexion
 $routes->get('/login', 'Home::pageConnexion');
 $routes->post('/login', 'Home::validationConnexion');
+
+//Controller déconnexion
+$routes->post('/deconnexion', 'Home::deconnexion');
 
 //Page accueil authentifié
 $routes->get('/animal/liste_animal', 'Animal::pageListe');
