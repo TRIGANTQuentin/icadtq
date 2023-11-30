@@ -18,11 +18,6 @@
 <div id="retrouve-animal-title-menu" class="titre-menu-accueil">Animal retrouvé</div>
 <a href=""><img id="retrouve-animal-img-menu" class="image-menu-accueil" src="\img\accueil-menu\non-authentifie\retrouve-animal-menu.jpg"></a>
 </div>
-<?php session_start();
-if (empty($_SESSION['connecter']))
-{
-    
-}
 ?>
 <div id="liste-animal-div-menu"> 
 <div class="titre-menu-accueil">Liste des animaux</div>
