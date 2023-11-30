@@ -1,0 +1,50 @@
+body 
+{
+     /* COULEUR DE FOND */
+     background-color: whitesmoke;
+     /* CREATION DU DECOUPAGE DE LA PAGE*/
+     display : grid;
+     grid-template-columns: repeat(10,minmax(auto,10%)); /* DECOUPAGE DE LA PAGE EN 10 COLONNES */
+     grid-template-rows: repeat(10,minmax(auto,10%));  /* DECOUPAGE DE LA PAGE EN 10 LIGNES */
+     /* BORD DE LA PAGE */
+     margin: 0;
+     margin: 1%;
+
+}
+
+header
+{
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+
+}
+
+#icad-img-menu
+{
+    width: 100%;
+    height: 100%;
+}
+
+#retrouve-animal-div-menu
+{
+    
+    grid-row: 4 / 8;
+    grid-column: 4 / 8;
+    width: 100%;
+    height: 100%;
+}
+
+#deconnexion
+{
+    
+    grid-row: 1 / 2;
+    grid-column: 10 / 11;
+    width: 100%;
+    height: 100%;
+}
+
+#retrouve-animal-title-menu 
+{
+    grid-row: 3 / 4;
+    grid-column: 5 / 7;
+}

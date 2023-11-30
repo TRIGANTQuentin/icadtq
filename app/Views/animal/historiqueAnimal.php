@@ -21,7 +21,7 @@
     <table>
       <thead>
       <tr>
-        <th>ID ICAD</th><th>IMAGE</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>DATE</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
       </tr>
         <th><input type="text" id="id_icad_recherche" oninput="triTableau()"></th><th></th><th><input type="text" id="nom_animal_recherche" oninput="triTableau()"></th><th><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="espece_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="race_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="sexe_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="info_animal_recherche" oninput="triTableau()"></th><th></th><th></th>
       </thead>

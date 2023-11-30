@@ -24,6 +24,7 @@
                     debut après le </body> / juste avant le </html>
 
 -->
+<<<<<<< HEAD
 <?php
 /**
  */
@@ -33,11 +34,16 @@ $user = session()->get('isConnected');
 
 ?>
 
+=======
+>>>>>>> ef44b65aeb7393b8c87f027a869d3476e4ac7e52
 <!-- SECTION CSS -->
 <?php $this->renderSection("css"); ?>
 <!-- import du css general du site -->
 <link rel="stylesheet" href="/inc/main.css">
+<<<<<<< HEAD
 <!-- SECTION SESSION -->
+=======
+>>>>>>> ef44b65aeb7393b8c87f027a869d3476e4ac7e52
 
 <!-- SECTION HEADER -->
 <?php $this->renderSection("header"); ?>
@@ -68,6 +74,9 @@ $user = session()->get('isConnected');
 </ul>
 </nav>
 <div id="accueil-menu" ><p><a href="/" class="lien-menu" >Accueil</a></p></div> <!-- début de la partie accueil du menu -->
+<form action="/deconnexion" method="POST">
+    <input type="submit" value="Deconnexion" />
+</form>
 </header>
 <!-- fin en-tête du site -->
 

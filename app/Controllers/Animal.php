@@ -61,12 +61,15 @@ class Animal extends BaseController
             $config['max_size']             = 100;
             $config['max_width']            = 1024;
             $config['max_height']           = 768;
-    
+        
+            
             $img = $this->request->getFile('imageAnimal');
-    
+            if ($img->getSize() != null)
+            {
             $filepath =  $img->move( WRITEPATH . 'uploads/' .'img/animal/', 'imgAnimalId' . $_POST['idAnimal'] . '.jpg' , true);
     
             $data = ['uploaded_fileinfo' => new File($filepath)];
+            }
         
         $model = model('App\Models\Animal');
         $result['unAnimal'] = $model->modifierUnAnimal();

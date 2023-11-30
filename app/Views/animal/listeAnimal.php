@@ -1,4 +1,12 @@
-<?php $this->extend('layout/main')?>
+
+<?php 
+
+$this->extend('layout/main');
+ $this->section('session');
+ $this->endsection();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,9 +29,9 @@
     <table>
       <thead>
       <tr>
-        <th>ID ICAD</th><th>IMAGE</th><th>PRENOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>IMAGE</th><th>NOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
       </tr>
-        <th><input type="text" id="id_icad_recherche" oninput="triTableau()"></th><th></th><th><input type="text" id="nom_animal_recherche" oninput="triTableau()"></th><th><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="espece_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="race_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="sexe_animal_recherche" oninput="triTableau()"></th><th><input type="text" id="info_animal_recherche" oninput="triTableau()"></th><th></th><th></th>
+        <th><i>&#x1F50D;</i><input type="text" id="id_icad_recherche" oninput="triTableau()" placeholder="ID"></th><th></th><th><i>&#x1F50D;</i><input type="text" id="nom_animal_recherche" oninput="triTableau()" placeholder="NOM"></th><th><i>&#x1F50D;</i><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><i>&#x1F50D;</i><input type="text" id="espece_animal_recherche" oninput="triTableau()" placeholder="ESPECE"></th><th><i>&#x1F50D;</i><input type="text" id="race_animal_recherche" oninput="triTableau()" placeholder="RACE"></th><th><i>&#x1F50D;</i><input type="text" id="sexe_animal_recherche" oninput="triTableau()" placeholder="SEXE"></th><th><i>&#x1F50D;</i><input type="text" id="info_animal_recherche" oninput="triTableau()" placeholder="INFO"></th><th></th><th></th>
       </thead>
       <tbody id="donneeTable">
 
