@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use \App\Models\proprio;
 
+
 class Proprietaire extends BaseController
 {
     public function index(): string
@@ -20,14 +21,14 @@ class Proprietaire extends BaseController
             "CP_PROPRIO" =>  $this ->request->getPost('code_postal'),
             "NO_TELEPHONE_PROPRIO" =>  $this ->request->getPost('phone')
         ];
-        $registre = new proprio();
-        $registre->insert($arr);
-
-        //echo json_encode($arr);
-        //return ;
-        return redirect() -> back()
-;
-        
+        try{
+            $registre = new proprio();
+            $registre->insert($arr); 
+            return Utilitaires::success('cree avec succes');
+        }catch(\Exception $err){
+            return Utilitaires::error("Erreur serveur interne");
+        }
+  
     }
 
     public function modifier(){

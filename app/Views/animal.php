@@ -1,55 +1,83 @@
-<head>
-    <meta charset="utf-8">
-    <title>nouveau</title>
-    <link href="inc/register.css" rel="stylesheet">
-</head>
+<?php $this->extend('layout/main') ?>
 <html>
-<form action="", method="POST">
-    <div class="container">
 
-        <h1>Nouveau</h1>
-        <h2>Remplissez ce formulaire pous ajouter un animal</h2>
-        <hr>
+<head>
+    <?php $this->section('css') ?>
+    <meta charset="utf-8">
+    <base href="<?= base_url() ?>" />
+    <title>Nouvel animal</title>
+    <link href="inc/register.css" rel="stylesheet">
+    <?php $this->endsection() ?>
+</head>
 
-        <label for="nom"><b>Nom</b></label>
-        <input type="text" placeholder="Entrer name" name="name" id="name" required>
+<body>
+    <?php $this->section('header') ?>
+    <?php $this->endsection() ?>
+    <?php $this->section('content') ?>
 
-        <label for="message"><b>Message</b></label>
-        <input type="text" placeholder="Entrer message" name="message" id="message" required>
+    <form action="" method="POST">
+        <div class="container">
+            <h1>Nouveau</h1>
+            <h2>Remplissez ce formulaire pous ajouter un animal</h2>
+            <hr>
 
-        <label for="sexe"><b>Sexe</b></label>
-        <input type="text" placeholder="Entrer sexe" name="sexe" id="sexe" required>
+            <label for="nom"><b>Nom</b></label>
+            <input type="text" placeholder="Entrer name" name="name" id="name" required>
 
-        <label for="espece"><b>Espece</b></label>
-        <input type="text" placeholder="Entrer Espece" name="espece" id="espece" required>
+            <label for="sexe"><b>Sexe</b></label>
+            <select name="sexe" id="sexe">
+                <option value="">Sexe de l'animal</option>
+                <?php
+                foreach ($sexe["sexe"] as $row)
+                {
+                    echo '<option value="'.$row["id"].'">'.$row["nom"]."</option>";
+                }
+                ?>
+            </select>
+            <br><br>   
 
-        <label for="Signes"><b>Signes particuliers</b></label>
-        <input type="text" placeholder="Entrer signes" name="signes" id="signes" required>
+            <label for="espece"><b>Espece</b></label>
+            <select name="espece" id="espece">
+                <option value="">Espece de l'animal</option>
+                <?php
+                foreach ($espece["espece"] as $row)
+                {
+                    echo '<option value="'.$row["id"].'">'.$row["nom"]."</option>";
+                }
+                ?>
+            </select>
+            <br><br>
 
-        <label for="race"><b>Race</b></label>
-        <input type="text" placeholder="Entrer race" name="race" id="race" required>
+            <label for="race"><b>Race</b></label>
+            <input type="text" placeholder="Entrer race" name="race" id="race" required>
 
+            <label for="Signes"><b>Signes particuliers</b></label>
+            <input type="text" placeholder="Entrer signes" name="signes" id="signes" required>
 
-        <label for="pet-select">Sélectionnez un propriétaire:</label>
+            <label for="pet-select">Sélectionnez un propriétaire:</label>
 
-        <select name="proprio" id="proprio">
-        <option value="">Choisissez un propriétaire</option>
-        <option value="1">lolo</option>
-        <option value="2">lolo</option>
-        <option value="3">Hamster</option>
-        <option value="4">Parrot</option>
-        <option value="5">lolo</option>
-        <option value="6">lolo</option>
-        </select>
+            <select name="proprietaire" id="proprietaire">
+                <option value="">Choisissez un propriétaire</option>
+                <?php
+                foreach ($proprietaire["proprietaire"] as $row)
+                {
+                    echo '<option value="'.$row["ID_PROPRIO"].'">'.$row["NOM_PROPRIO"]."</option>";
+                }
+                ?>
+            </select>
+                <br><br>
+            <label for="date"> date de naissance:</label>
+            <input type="date" id="date" name="date" id="date" required />
 
+            <button type="submit" class="registerbtn">Envoyer</button>
+        </div>
 
-
-        <label for="date">Entrer la date:</label>
-        <input type="date" id="date" name="date" id="date" required/>
-
-        <input type="submit">
-    
     </form>
-</body>
+    <?php $this->endsection() ?>
 
+<?php $this->section('footer') ?>
+<?php $this->endsection() ?>
+</body>
+<?php $this->section('script') ?>
+<?php $this->endsection() ?>
 </html>

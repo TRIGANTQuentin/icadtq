@@ -1,5 +1,8 @@
 <?php
 namespace App\Controllers;
+use App\Models\proprio;
+use App\Models\sexe;
+use App\Models\espece;
 use CodeIgniter\Files\File;
 
 class Animal extends BaseController
@@ -7,7 +10,23 @@ class Animal extends BaseController
     protected $helpers = ['form'];
     public function pageNouveau()
     {
-        return view('animal');
+        // instancier le(s) modele(s) nécessaires à la récupération des données
+        $propriomodel= new proprio();
+        $sexemodel = new sexe();
+        $especemodel = new espece();
+
+        // Réccupérer données nécessaires à partir de la base
+
+        $data['proprietaire'] = $propriomodel ->orderBy('NOM_PROPRIO','ASC')->findAll();
+        $data['sexe'] = $sexemodel ->findAll();
+        $data['espece'] = $especemodel->findAll();
+
+        // appeler la vue avec les données récupérées et la retourner au client
+        return view('animal', [
+            'proprietaire' => $data,
+            'sexe'=> $data,
+            'espece'=>$data
+        ]);
     }
 
     //Pour l'accueil authentifié
@@ -53,12 +72,25 @@ class Animal extends BaseController
         $result['unAnimal'] = $model->modifierUnAnimal();
         return redirect()->to('animal/liste_animal'); 
     }
+    public function ajouterAnimal(){
+        $arr = [
+            "PRORPIO" => $this->request->getPost('proprietaire'),
+            "NOM_ANIMAL" =>  $this ->request->getPost('email'),
+            "DATE_NAISSANCE_ANIMAL" =>  $this ->request->getPost('nom'),
+            "INFO_ANIMAL" =>  $this ->request->getPost('prenom'),
+            "PHOTO_ANIMAL" =>  $this ->request->getPost('adresse'),
+            "SEXE_ANIMAL" =>  $this ->request->getPost('ville'),
+            "ESPECE_ANIMAL" =>  $this ->request->getPost('code_postal'),
+            "RACE_ANIMAL" =>  $this ->request->getPost('phone')
+        ];
+        $registre = new proprio();
+        $registre->insert($arr);
 
-    public function bddNouveau()
-    {
-        $model = model('App\Models\Animal');
-        $model->nouvelanimal();
-        return redirect()->to("/animal/liste_animal/");
+        //echo json_encode($arr);
+        //return ;
+        return redirect() -> back()
+;
+        
     }
 
 }

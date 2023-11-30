@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use \App\Models\Utilisateur;
 
-class register extends BaseController
+class Register extends BaseController
 {
     public function index(): string
     {
@@ -32,5 +32,9 @@ class register extends BaseController
 
     public function modifier(){
         
+    }
+
+    static function isConnected():bool {
+        return session()->has('isConnected');
     }
 }

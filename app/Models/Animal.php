@@ -68,7 +68,8 @@ class Animal extends Model
             "ESPECE_ANIMAL" => $_POST["especeAnimal"],
             "RACE_ANIMAL" => $_POST["raceAnimal"],
             "SEXE_ANIMAL" => $_POST["sexeAnimal"],
-            "INFO_ANIMAL" => $_POST["infoAnimal"]
+            "INFO_ANIMAL" => $_POST["infoAnimal"],
+            "PROPRIO" => $_POST[""]
         ];
 
         $requete->where("ID_ICAD", $_POST["idAnimal"]);
@@ -90,7 +91,7 @@ class Animal extends Model
             'ESPECE_ANIMAL' => $_POST['espece'],
             'RACE_ANIMAL' => $_POST['race'],
             'INFO_ANIMAL' => $_POST['message'],
-            'ID_PROPRIO' => $_POST['proprio']
+            'PROPRIO' => $_POST["proprietaire"]
 
 
                 

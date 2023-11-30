@@ -32,7 +32,7 @@
 </div>
 <div id="nouveau-proprietaire-div-menu"> 
 <div class="titre-menu-accueil">Ajouter un nouveau propriétaire</div>
-<a href=""><img id="nouveau-proprietaire-img-menu" class="image-menu-accueil" src="\img\accueil-menu\authentifie\nouveau-proprietaire-menu.jpg"></a>
+<a href="/proprio/nouveau"><img id="nouveau-proprietaire-img-menu" class="image-menu-accueil" src="\img\accueil-menu\authentifie\nouveau-proprietaire-menu.jpg"></a>
 </div>
 </div>
 <?php $this->endsection()?>
