@@ -17,7 +17,7 @@
 
 <div id="retrouve-animal-title-menu" class="titre-menu-accueil">Animal retrouvé</div>
 <div id="retrouve-animal-div-menu">
-<a href=""><img id="retrouve-animal-img-menu" class="image-menu-accueil" src="\img\accueil-menu\non-authentifie\retrouve-animal-menu.jpg"></a>
+<a href="/demande/retrouve"><img id="retrouve-animal-img-menu" class="image-menu-accueil" src="\img\accueil-menu\non-authentifie\retrouve-animal-menu.jpg"></a>
 </div>
     
 </body>

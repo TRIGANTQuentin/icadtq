@@ -27,14 +27,14 @@ class Register extends BaseController
 
         //echo json_encode($arr);
         //return ;
-        return redirect() -> back();
+        return redirect()->to('/');
     }
 
     public function modifier(){
         
     }
 
-    static function isConnected():bool {
-        return session()->has('isConnected');
-    }
+    //static function isConnected():bool {
+    //    return session()->has('isConnected');
+    //}
 }

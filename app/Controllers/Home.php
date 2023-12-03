@@ -4,13 +4,14 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        if (empty(session()-> get['connecter']))
+        $session = session();
+        if (empty($session->get('logged_in')))
         {
             return view('menu-non-connecter');
         }
-        return view('index');
+        return redirect()->to('/animal/liste_animal');
     }
 
     public function pageConnexion()
@@ -24,19 +25,20 @@ class Home extends BaseController
         $validation = $model->loginValide();
          if ($validation)
          {
-            session() ->set(['connecter' => true]);
-            return view('index');
+            $_SESSION['connecter'] = true;
+            return redirect()->to('/animal/liste_animal');
          }
          else
          {
-            return view('index');
+            return redirect()->to('/');
          }
 
     }
 
     public function deconnexion()
     {
-        session() -> set('');
-        return $this->index();
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/');
     }
 }

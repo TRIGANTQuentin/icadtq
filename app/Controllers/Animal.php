@@ -29,6 +29,15 @@ class Animal extends BaseController
         ]);
     }
 
+    public function bddNouveau()
+    {
+        $model = model('App\Models\Animal');
+        $result['nom_animal'] = $model->nouvelanimal();
+        
+
+        return redirect()->to('animal/liste_animal');
+    }
+
     //Pour l'accueil authentifié
     public function pageListe()
     {
@@ -43,11 +52,20 @@ class Animal extends BaseController
         return view("animal/json/requeteListeAnimal", $result);
     }
     
+    //historiqueAnimal
+    public function pageHistorique($id)
+    {
+        $model = model('App\Models\Animal');
+        $result['historiqueAnimal'] = $model->historiqueAnimal($id);
+        return view("animal/historiqueAnimal", $result);
+    }
+    
     public function pageModification($id)
     {
         $model = model('App\Models\Animal');
         $result['unAnimal'] = $model->unAnimal($id);
-        $result['id'] = $id;
+        $result['sexeDifferent'] = $model->sexeDifferent($result['unAnimal'][0]["ID_SEXE"]);
+        $result['especeDifferente'] = $model->especeDifferente($result['unAnimal'][0]["ID_ESPECE"]);
         return view("animal/modifierAnimal", $result);
 
     }
@@ -75,27 +93,52 @@ class Animal extends BaseController
         $result['unAnimal'] = $model->modifierUnAnimal();
         return redirect()->to('animal/liste_animal'); 
     }
-    public function ajouterAnimal(){
-        $arr = [
-            "PRORPIO" => $this->request->getPost('proprietaire'),
-            "NOM_ANIMAL" =>  $this ->request->getPost('email'),
-            "DATE_NAISSANCE_ANIMAL" =>  $this ->request->getPost('nom'),
-            "INFO_ANIMAL" =>  $this ->request->getPost('prenom'),
-            "PHOTO_ANIMAL" =>  $this ->request->getPost('adresse'),
-            "SEXE_ANIMAL" =>  $this ->request->getPost('ville'),
-            "ESPECE_ANIMAL" =>  $this ->request->getPost('code_postal'),
-            "RACE_ANIMAL" =>  $this ->request->getPost('phone')
-        ];
-        $registre = new proprio();
-        $registre->insert($arr);
 
-        //echo json_encode($arr);
-        //return ;
-        return redirect() -> back()
-;
-        
+    public function pagePerteVol($id)
+    {
+        $model = model('App\Models\Animal');
+        $result['unAnimal'] = $model->unAnimal($id);
+        $session = session();
+        $session->set(["dernierID_animal" => $id]);
+        return view("animalPerduVol", $result);
     }
 
+    public function bddPerteVol()
+    {
+        $model = model('App\Models\Animal');
+        $session = session();
+        $model->perduVolAnimal($session->get("dernierID_animal"));
+        return redirect()->to('animal/liste_animal'); 
+    }
+
+    public function pageRetrouve($id)
+    {
+        $model = model('App\Models\Animal');
+        $result['unAnimal'] = $model->unAnimal($id);
+        $session = session();
+        $session->set(["dernierID_animal" => $id]);
+        return view("animalRetrouve", $result);
+    }
+
+    public function bddRetrouve()
+    {
+        $model = model('App\Models\Animal');
+        $session = session();
+        $model->retrouveAnimal($session->get("dernierID_animal"));
+        return redirect()->to('animal/liste_animal'); 
+    }
+
+    public function pageDemandeRetrouve()
+    {
+        return view("animalDemandeRetrouve");
+    }
+
+    public function bddDemandeRetrouve()
+    {
+        $model = model('App\Models\Animal');
+        $model->demandeRetrouveAnimal();
+        return redirect()->to('animal/liste_animal');
+    }
 }
 
 ?>

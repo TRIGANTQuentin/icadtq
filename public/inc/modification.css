@@ -1,8 +1,8 @@
 #modification-animal-contenu
 {
     display : grid;
-    grid-template-columns: repeat(10,minmax(auto,10%));
-    grid-template-rows: repeat(10,minmax(auto,10%));
+    grid-template-columns: repeat(10,minmax(10%,10%));
+    grid-template-rows: repeat(10,minmax(10%,10%));
     text-align: center;
 }
 

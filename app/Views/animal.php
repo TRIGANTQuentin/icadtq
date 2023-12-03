@@ -30,7 +30,7 @@
                 <?php
                 foreach ($sexe["sexe"] as $row)
                 {
-                    echo '<option value="'.$row["id"].'">'.$row["nom"]."</option>";
+                    echo '<option value="'.$row["ID_SEXE"].'">'.$row["NOM_SEXE"]."</option>";
                 }
                 ?>
             </select>
@@ -42,7 +42,7 @@
                 <?php
                 foreach ($espece["espece"] as $row)
                 {
-                    echo '<option value="'.$row["id"].'">'.$row["nom"]."</option>";
+                    echo '<option value="'.$row["ID_ESPECE"].'">'.$row["NOM_ESPECE"]."</option>";
                 }
                 ?>
             </select>
