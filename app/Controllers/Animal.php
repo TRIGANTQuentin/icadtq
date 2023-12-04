@@ -78,13 +78,13 @@ class Animal extends BaseController
     public function ajouterAnimal(){
         $arr = [
             "PRORPIO" => $this->request->getPost('proprietaire'),
-            "NOM_ANIMAL" =>  $this ->request->getPost('email'),
-            "DATE_NAISSANCE_ANIMAL" =>  $this ->request->getPost('nom'),
-            "INFO_ANIMAL" =>  $this ->request->getPost('prenom'),
+            "NOM_ANIMAL" =>  $this ->request->getPost('name'),
+            "DATE_NAISSANCE_ANIMAL" =>  $this ->request->getPost('date'),
+            "INFO_ANIMAL" =>  $this ->request->getPost('signes'),
             "PHOTO_ANIMAL" =>  $this ->request->getPost('adresse'),
-            "SEXE_ANIMAL" =>  $this ->request->getPost('ville'),
-            "ESPECE_ANIMAL" =>  $this ->request->getPost('code_postal'),
-            "RACE_ANIMAL" =>  $this ->request->getPost('phone')
+            "SEXE_ANIMAL" =>  $this ->request->getPost('sexe'),
+            "ESPECE_ANIMAL" =>  $this ->request->getPost('espece'),
+            "RACE_ANIMAL" =>  $this ->request->getPost('race')
         ];
         $registre = new proprio();
         $registre->insert($arr);
