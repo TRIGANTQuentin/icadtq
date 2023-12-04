@@ -24,44 +24,21 @@
                     debut après le </body> / juste avant le </html>
 
 -->
-<<<<<<< HEAD
-<?php
-/**
- */
-$success = session()->getFlashdata('success');
-$error = session()->getFlashdata('error');
-$user = session()->get('isConnected');
 
-?>
 
-=======
->>>>>>> ef44b65aeb7393b8c87f027a869d3476e4ac7e52
+
 <!-- SECTION CSS -->
 <?php $this->renderSection("css"); ?>
 <!-- import du css general du site -->
 <link rel="stylesheet" href="/inc/main.css">
-<<<<<<< HEAD
 <!-- SECTION SESSION -->
-=======
->>>>>>> ef44b65aeb7393b8c87f027a869d3476e4ac7e52
 
 <!-- SECTION HEADER -->
 <?php $this->renderSection("header"); ?>
 <!-- début en-tête du site -->
-<header></div>
-<aside>
-            <?php if ($error): ?>
-                <section class='notification error'>
-                    <?= $error ?>
-                </section>
-            <?php endif; ?>
+<header>
 
-            <?php if ($success): ?>
-                <section class='notification success'>
-                    <?= $success ?>
-                </section>
-            <?php endif; ?>
-            </aside>
+</div>
 <img id="icad-img-menu" src="\img\header\logo-icad.png">
 <nav class="menu"> <!-- début de la partie déroulante animal et propriétaire du menu -->
 <ul class="liste-menu">
