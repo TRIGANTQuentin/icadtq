@@ -12,18 +12,10 @@ class Proprietaire extends BaseController
 
     }
     public function ajouter(){
-        $arr = [
-            "EMAIL_PROPRIO" =>  $this ->request->getPost('email'),
-            "NOM_PROPRIO" =>  $this ->request->getPost('nom'),
-            "PRENOM_PROPRIO" =>  $this ->request->getPost('prenom'),
-            "ADRESSE_PROPRIO" =>  $this ->request->getPost('adresse'),
-            "VILLE_PROPRIO" =>  $this ->request->getPost('ville'),
-            "CP_PROPRIO" =>  $this ->request->getPost('code_postal'),
-            "NO_TELEPHONE_PROPRIO" =>  $this ->request->getPost('phone')
-        ];
+
+        $model = model('App\Models\proprio');
         try{
-            $registre = new proprio();
-            $registre->insert($arr); 
+            $model->ajouterProprietaire();
             return Utilitaires::success('cree avec succes');
         }catch(\Exception $err){
             return Utilitaires::error("Erreur serveur interne");
@@ -31,7 +23,17 @@ class Proprietaire extends BaseController
   
     }
 
-    public function modifier(){
-        
+    public function information($id)
+    {
+        $model = model('App\Models\proprio');
+        $result['info_proprietaire'] = $model->unProprietaire($id);
+        return view("informationsProprietaire",$result);
+    }
+
+    public function pageListe()
+    {
+        $model = model('App\Models\proprio');
+        $result['liste_proprietaire'] = $model->listeProprietaire();
+        return view("listeProprietaire", $result);
     }
 }

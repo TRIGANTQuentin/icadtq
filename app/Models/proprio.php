@@ -46,4 +46,45 @@ class proprio extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+public function unProprietaire($id)
+{
+    
+    $db = \Config\Database::connect();
+    $requete = $db->table('proprietaire');
+
+    $resultat = $db->query("SELECT proprietaire.* FROM proprietaire WHERE ID_PROPRIO = " . $id);
+
+    return $resultat->getRowArray();
+
+}
+
+public function listeProprietaire()
+{
+    $db = \Config\Database::connect();
+    $requete = $db->table('proprietaire');
+    $resultat = $db->query("SELECT proprietaire.* FROM proprietaire");
+    return $resultat->getResultArray();
+}
+
+public function ajouterProprietaire(){
+
+    $db = \Config\Database::connect();
+    $requete = $db->table('proprietaire');
+    $arr = [
+        "EMAIL_PROPRIO" =>  $_POST['email'],
+        "NOM_PROPRIO" => $_POST['nom'],
+        "PRENOM_PROPRIO" =>  $_POST['prenom'],
+        "ADRESSE_PROPRIO" =>  $_POST['adresse'],
+        "VILLE_PROPRIO" =>  $_POST['ville'],
+        "CP_PROPRIO" =>  $_POST['code_postal'],
+        "NO_TELEPHONE_PROPRIO" =>  $_POST['phone']
+    ];
+
+    $requete->insert($arr);
+
+
+
+}
 }

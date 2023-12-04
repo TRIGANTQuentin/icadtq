@@ -1,5 +1,13 @@
 .imageTable
 {
-    max-width: 30%;
-    max-height: 30%;
+    word-wrap: break-word;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.barre_de_recherche
+{
+    word-wrap: break-word;
+    max-width: 100px;
+    max-height: 100px;
 }

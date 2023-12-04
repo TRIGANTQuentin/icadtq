@@ -29,9 +29,9 @@ $this->extend('layout/main');
     <table>
       <thead>
       <tr>
-        <th>ID ICAD</th><th>IMAGE</th><th>NOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>Modifier</th><th>Supprimer</th>
+        <th>ID ICAD</th><th>IMAGE</th><th>NOM</th><th>DATE DE NAISSANCE</th><th>ESPECE</th><th>RACE</th><th>SEXE</th><th>INFO</th><th>PROPRIETAIRE</th><th>MODIFIER</th><th>SUPPRIMER</th><th>HISTORIQUE</th><th>SITUATION</th>
       </tr>
-        <th><i>&#x1F50D;</i><input type="text" id="id_icad_recherche" oninput="triTableau()" placeholder="ID"></th><th></th><th><i>&#x1F50D;</i><input type="text" id="nom_animal_recherche" oninput="triTableau()" placeholder="NOM"></th><th><i>&#x1F50D;</i><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th><i>&#x1F50D;</i><input type="text" id="espece_animal_recherche" oninput="triTableau()" placeholder="ESPECE"></th><th><i>&#x1F50D;</i><input type="text" id="race_animal_recherche" oninput="triTableau()" placeholder="RACE"></th><th><i>&#x1F50D;</i><input type="text" id="sexe_animal_recherche" oninput="triTableau()" placeholder="SEXE"></th><th><i>&#x1F50D;</i><input type="text" id="info_animal_recherche" oninput="triTableau()" placeholder="INFO"></th><th></th><th></th>
+        <th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="id_icad_recherche" oninput="triTableau()" placeholder="ID"></th><th></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="nom_animal_recherche" oninput="triTableau()" placeholder="NOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="espece_animal_recherche" oninput="triTableau()" placeholder="ESPECE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="race_animal_recherche" oninput="triTableau()" placeholder="RACE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="sexe_animal_recherche" oninput="triTableau()" placeholder="SEXE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="info_animal_recherche" oninput="triTableau()" placeholder="INFO"></th><th></th><th></th><th></th><th></th><th></th>
       </thead>
       <tbody id="donneeTable">
 
@@ -66,7 +66,7 @@ $this->extend('layout/main');
       var donneeTable = document.getElementById("donneeTable");
       var ligne = "";
       donnee.forEach((element) => {
-          ligne += "<tr style='text-align:center; vertical-align:middle'><th>" + element["ID_ICAD"] + "</th>" + "<th><img class='imageTable' src= image/imgAnimalId" + element["ID_ICAD"] +'.jpg' + "></th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th></tr>";
+          ligne += "<tr style='text-align:center; vertical-align:middle'><th>" + element["ID_ICAD"] + "</th>" + "<th><img class='imageTable' src= image/imgAnimalId" + element["ID_ICAD"] +'.jpg' + "></th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th><th><a href = '/proprietaire/information/"+ element["ID_PROPRIO"] +"'>" + element["NOM_PROPRIO"] + "</a></th><th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th>" + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='historique(this)'>Historique</button></th><th>"+ (element["IS_PERDU_ANIMAL"] == 1 ? ("<div>PERDU</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerRetrouve(this)'>Déclarer l'animal retrouvé</button>")  : ("<div>EN POSESSION DE SON PROPRIETAIRE</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerPerduVol(this)'>Déclarer l'animal perdu</button>")) + "</th></tr>";
 
       });
       donneeTable.innerHTML += ligne;
@@ -120,14 +120,30 @@ $this->extend('layout/main');
 
   }
 
-  function supprimer(boutonModifier)
+  function supprimer(boutonSupprimer)
   {
 
       //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
       //boutonModifier.style = "color:dark;background:red;";
-      window.location.href = "modification/" + boutonModifier.value;
+      window.location.href = "modification/" + boutonSupprimer.value;
 
   }
+
+  function historique(boutonHistorique)
+  {
+      window.location.href = "historique/" + boutonHistorique.value;
+  }
+
+  function declarerPerduVol(boutonDeclarerPerduVol)
+  {
+      window.location.href = "perte/" + boutonDeclarerPerduVol.value;
+  }
+
+  function declarerRetrouve(boutonDeclarerRetrouve)
+  {
+      window.location.href = "retrouve/" + boutonDeclarerRetrouve.value;
+  }
+
 
 </script>
 <?php $this->endsection()?>
