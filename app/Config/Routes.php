@@ -19,8 +19,11 @@ $routes->post('/inscription', 'Register::validation');
 //Utilisé pour afficher des images contenus dans un dossier privé (ex: images des animaux qui ne doivent pas être disponible pour tout le monde)
 $routes->get('animal/image/(:segment)', 'ImagesPrivates::animal/$1');
 
+$routes->get('/demande/retrouve', 'Animal::pageDemandeRetrouve');
+$routes->post('/demande/retrouve', 'Animal::bddDemandeRetrouve');
+
 //Page animal retrouvé (sans authentification)
-$routes->get('/animal/retrouve', 'Animal::pageRetrouve');
+$routes->get('/animal/retrouve/(:num)', 'Animal::pageRetrouve/$1');
 $routes->post('/animal/retrouve', 'Animal::bddRetrouve');
 
 //Pour le fetch de la page accueil authentifié

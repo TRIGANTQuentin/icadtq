@@ -19,11 +19,10 @@
 <?php $this->section('content')?>
 
 <?php ;?>
-
     <form action="/animal/modification" method="post" enctype="multipart/form-data">
     <div id="modification-animal-contenu">
     <div id="div-image-modification-animal">
-    <img id="image-modification-animal"src="<?= site_url('animal/image/imgAnimalId'. $id .'.jpg') ?>">
+    <img id="image-modification-animal"src="<?= site_url('animal/image/imgAnimalId'. $unAnimal[0]["ID_ICAD"] .'.jpg') ?>">
     </div>
     <div id="div-file-image-modification-animal">
     <input type="file" name="imageAnimal" id="imageAnimal">
@@ -38,18 +37,24 @@
     <input type="date" id ="dateDeNaissanceAnimal" name ="dateNaissanceAnimal" value=  <?php echo $unAnimal[0]["DATE_NAISSANCE_ANIMAL"];?>></div>
 
     <div id="sexe-modification-animal" ><a>Sexe</a>
-    <select name ="sexeAnimal" ><option value=1>Masculin</option><option value=2>Féminin</option></select>
+    <select name ="sexeAnimal" ><option value= <?php echo $unAnimal[0]["ID_SEXE"]?> > <?php echo $unAnimal[0]["SEXE_ANIMAL"]?></option><option value= <?php echo $sexeDifferent[0]["ID_SEXE"]?> > <?php echo $sexeDifferent[0]["NOM_SEXE"]?></option></select>
     </div>
 
     <div id="espece-modification-animal" ><a>Espèce</a>
-    <select name ="especeAnimal"><option value=1>Chien</option><option value=2>Chat</option><option value=3>Furet</option></select>
+    <select name ="especeAnimal"><option value= <?php echo $unAnimal[0]["ID_ESPECE"]?> > <?php echo $unAnimal[0]["ESPECE_ANIMAL"]?></option>
+    <?php foreach ($especeDifferente as $espece)
+    {
+        echo "<option value=" .  $espece["ID_ESPECE"] . ">" . $espece["NOM_ESPECE"] . "</option>";
+    }?>
+
+</select>
     </div>
 
     <div id="race-modification-animal" ><a>Race</a>
     <input type="text" id ="raceAnimal" name ="raceAnimal" value=  <?php echo $unAnimal[0]["RACE_ANIMAL"];?>></div>
 
     <div id="info-modification-animal" ><a>Info</a>
-    <textarea id="infoAnimal" name="infoAnimal"> <?php echo $unAnimal[0]["INFO_ANIMAL"];?> </textarea></div>
+    <textarea id="infoAnimal" name="infoAnimal"><?php echo $unAnimal[0]["INFO_ANIMAL"];?></textarea></div>
 
     <input id="validation-modification-animal" type="submit" value="Valider la modification">
     <div> 

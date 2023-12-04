@@ -57,7 +57,7 @@ class Utilisateur extends Model
         $email = $_POST['email-utilisateur'];
         $mdp = $_POST['mdp-utilisateur'];
 
-        $resultat = $db->query("SELECT EMAIL_UTILISATEUR, MDP_UTILISATEUR_HASH, ID_UTILISATEUR FROM utilisateur WHERE EMAIL_UTILISATEUR = '" . $email . "' ;");
+        $resultat = $db->query("SELECT EMAIL_UTILISATEUR, MDP_HASH_UTILISATEUR, ID_UTILISATEUR FROM utilisateur WHERE EMAIL_UTILISATEUR = '" . $email . "' ;");
 
         if (empty($resultat->getRow()))
         {
@@ -66,9 +66,16 @@ class Utilisateur extends Model
         else
         {
             $row = $resultat->getRowArray();
-            if ($mdp == $row['MDP_UTILISATEUR_HASH'])
-            {
-                session() -> set(['id' =>  $row['ID_UTILISATEUR']]);
+            if (password_verify($mdp, $row['MDP_HASH_UTILISATEUR']))
+            {          
+                $session = session();
+                $newdata = [
+                    'id'  => $row['ID_UTILISATEUR'],
+                    'email'     => $row['EMAIL_UTILISATEUR'],
+                    'logged_in' => true,
+                ];
+                
+                $session->set($newdata);
                 return true;
             }
             else 

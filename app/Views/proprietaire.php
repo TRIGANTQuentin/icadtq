@@ -20,7 +20,6 @@
         <div class="container">
             <h1>Nouveau Propriétaire</h1>
             <h2>Remplissez ce formulaire pour renseigner un nouveau propriétaire</h2>
-            <hr>
 
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Entrer Email" name="email" id="email" required>
@@ -45,14 +44,11 @@
             <label for="phone">Entrer votre numéro de téléphone:</label>
             <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required />
 
-            <br><br>
-
             <button type="submit" class="registerbtn">Register</button>
 
         </div>
     </form>
     <?php $this->endsection() ?>
-
     <?php $this->section('footer') ?>
     <?php $this->endsection() ?>
 </body>

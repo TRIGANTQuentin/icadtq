@@ -231,7 +231,6 @@ footer{text-align:center;
     grid-row: 2 / 10;
     grid-column: 1 / 11;
     margin: 1%;
-    display:flex;
 }
 
 /* css formulaire */
@@ -337,5 +336,17 @@ a {
       opacity: 0;
       display: none;
     }
+  }
+
+ #deconnexion  {
+    
+    grid-row: 1 / 5;
+    grid-column: 10 / 11;
+  }
+
+  #inscription {
+    
+    grid-row: 5 / 10;
+    grid-column: 10 / 11;
   }
   
