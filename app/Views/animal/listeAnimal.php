@@ -45,7 +45,9 @@ $this->extend('layout/main');
 
 <script>
 
-  var resultatRequete = logTable();
+  //var resultatRequete = logTable();
+  var resultatRequete = <?php echo json_encode($listeAnimal); ?> ;
+  ajouteDonneeDansTable(resultatRequete);
   
   //Fonction qui envoie une requete fetch pour charger le tableau
   //Paramètre : aucun
