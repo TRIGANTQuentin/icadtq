@@ -51,7 +51,7 @@
     </div>
 
     <div id="race-modification-animal" ><a>Race</a>
-    <input type="text" id ="raceAnimal" name ="raceAnimal" value=  <?php echo $unAnimal[0]["RACE_ANIMAL"];?>></div>
+    <input type="text" id ="raceAnimal" name ="raceAnimal" value=  '<?php echo $unAnimal[0]["RACE_ANIMAL"];?>'></div>
 
     <div id="info-modification-animal" ><a>Info</a>
     <textarea id="infoAnimal" name="infoAnimal"><?php echo $unAnimal[0]["INFO_ANIMAL"];?></textarea></div>
