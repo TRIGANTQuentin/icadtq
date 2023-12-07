@@ -73,4 +73,8 @@ $routes->get('/proprietaire/liste/', 'Proprietaire::pageListe');
 
 //Page modification propriétaire
 $routes->get('/proprietaire/modification/(:num)', 'Proprietaire::pageModification/$1');
-$routes->post('/proprietaire/modification/', 'Proprietaire::bddModification');
+$routes->post('/proprietaire/modification', 'Proprietaire::bddModification');
+
+//page supprimer proprio
+$routes->get('/proprietaire/supprimer/(:num)', 'Proprietaire::pageSupprimer/$1');
+$routes->post('/proprietaire/supprimer', 'Proprietaire::bddSupprimer');
