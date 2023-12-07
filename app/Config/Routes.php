@@ -27,6 +27,7 @@ $routes->get('/animal/retrouve/(:num)', 'Animal::pageRetrouve/$1');
 $routes->post('/animal/retrouve', 'Animal::bddRetrouve');
 
 //Pour le fetch de la page accueil authentifié
+//UTILISE POUR LE JAVASCRIPT DE LA LISTE ANIMAL (mais désactivé donc supprimable)
 $routes->get('/animal/requete', 'Animal::listeAnimal');
 
 //Page pour connexion

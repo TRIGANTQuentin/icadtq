@@ -41,7 +41,10 @@ class Animal extends BaseController
     //Pour l'accueil authentifié
     public function pageListe()
     {
-        return view("animal/listeAnimal");
+        
+        $model = model('App\Models\Animal');
+        $result['listeAnimal'] = $model->listeAnimal();
+        return view("animal/listeAnimal", $result);
     }
 
     //Pour le fetch de l'accueil authentifié

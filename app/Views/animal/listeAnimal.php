@@ -13,7 +13,7 @@ $this->extend('layout/main');
 <?php $this->section('css')?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doscument</title>
+  <title>Liste des animaux</title>
   <link rel="stylesheet" href="/inc/liste_animal.css">
   <?php $this->endsection()?>
 </head>
@@ -24,6 +24,9 @@ $this->extend('layout/main');
 <?php $this->section('header')?>
 <?php $this->endsection()?>
 <?php $this->section('content')?>
+
+<h1>Liste des animaux</h1>
+
 
   <div class="div-table">
     <table>
@@ -45,7 +48,16 @@ $this->extend('layout/main');
 
 <script>
 
-  var resultatRequete = logTable();
+  //DEUX MANIERES DE CHARGER LE TABLEAU
+
+  //1: EN JAVASCRIPT(mais ne marche sur certains navigateurs)
+  //var resultatRequete = logTable();
+
+  //2 : EN PHP
+  var resultatRequete = <?php echo json_encode($listeAnimal); ?> ;
+  ajouteDonneeDansTable(resultatRequete);
+
+  //FONCTIONS
   
   //Fonction qui envoie une requete fetch pour charger le tableau
   //Paramètre : aucun
@@ -66,7 +78,7 @@ $this->extend('layout/main');
       var donneeTable = document.getElementById("donneeTable");
       var ligne = "";
       donnee.forEach((element) => {
-          ligne += "<tr style='text-align:center; vertical-align:middle'><th>" + element["ID_ICAD"] + "</th>" + "<th><img class='imageTable' src= image/imgAnimalId" + element["ID_ICAD"] +'.jpg' + "></th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th><th><a href = '/proprietaire/information/"+ element["ID_PROPRIO"] +"'>" + element["NOM_PROPRIO"] + "</a></th><th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th>" + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='historique(this)'>Historique</button></th><th>"+ (element["IS_PERDU_ANIMAL"] == 1 ? ("<div>PERDU</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerRetrouve(this)'>Déclarer l'animal retrouvé</button>")  : ("<div>EN POSESSION DE SON PROPRIETAIRE</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerPerduVol(this)'>Déclarer l'animal perdu</button>")) + "</th></tr>";
+          ligne += "<tr style='text-align:center; vertical-align:middle'><th>" + element["ID_ICAD"] + "</th>" + "<th><img class='imageTable' src= image/imgAnimalId" + element["ID_ICAD"] +'.jpg' + "></th>" + "<th>" + element["NOM_ANIMAL"] + "</th>" + "<th>" + element["DATE_NAISSANCE_ANIMAL"] + "<th>" + element["ESPECE_ANIMAL"] + "</th>" + "<th>" + element["RACE_ANIMAL"] + "</th>" + "<th>" + element["SEXE_ANIMAL"] + "</th>" + "<th>" + element["INFO_ANIMAL"] + "</th><th><a href = '/proprietaire/information/"+ element["ID_PROPRIO"] +"'>" + element["NOM_PROPRIO"] + "</a></th><th><button value = " + element["ID_ICAD"] + " type='button' onclick='modifier(this)'>Modifier</button></th> <th><button value = "+ element["ID_ICAD"] +" onclick='supprimer(this)' type='button'>Supprimer</button></th>" + "</th> <th><button value = " + element["ID_ICAD"] + " type='button' onclick='historique(this)'>Historique</button></th><th>"+ (element["IS_PERDU_ANIMAL"] == 1 ? ("<div>PERDU</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerRetrouve(this)'>Déclarer l'animal retrouvé</button>")  : ("<div>EN POSSESSION DE SON PROPRIETAIRE</div><button value = " + element["ID_ICAD"] + " type='button' onclick='declarerPerduVol(this)'>Déclarer l'animal perdu</button>")) + "</th></tr>";
 
       });
       donneeTable.innerHTML += ligne;
@@ -81,10 +93,9 @@ $this->extend('layout/main');
   {
 
     donnee = resultatRequete;
-    resultatRequete.then(function(value) {
     var nouvelleDonnee = [];
     donneeTable.innerHTML = "";
-    value.forEach((element) => {
+    donnee.forEach((element) => {
 
           if (valideModificationTableau(element))
           {
@@ -92,7 +103,6 @@ $this->extend('layout/main');
           }
       });
       ajouteDonneeDansTable(nouvelleDonnee);
-    })
   }
 
   //Fonction qui vérifie si les éléments de la liste commence tous par la valeur contenu dans les inputs

@@ -5,7 +5,7 @@
 <?php $this->section('css')?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doscument</title>
+  <title>Historique</title>
   <link rel="stylesheet" href="/inc/liste_animal.css">
   <?php $this->endsection()?>
 </head>
@@ -16,6 +16,8 @@
 <?php $this->section('header')?>
 <?php $this->endsection()?>
 <?php $this->section('content');?>
+
+  <h1>Historique de l'animal</h1>
 
   <div class="div-table">
     <table>
@@ -58,7 +60,7 @@
           + "<th " + (element["SEXE_ANIMAL"] == ancienneLigne["SEXE_ANIMAL"] ? '' : 'style= "background-color:#dbd7cf"') + ">" + element["SEXE_ANIMAL"] + "</th>" 
           + "<th " + (element["INFO_ANIMAL"] == ancienneLigne["INFO_ANIMAL"] ? '' : 'style= "background-color:#dbd7cf"') + ">" + element["INFO_ANIMAL"] + "</th>" 
           + "<th " + (element["NOM_PROPRIETAIRE"] == ancienneLigne["NOM_PROPRIETAIRE"] ? '' : 'style= "background-color:#dbd7cf"') + ">" + element["NOM_PROPRIETAIRE"] + "</th>"
-          + "<th " + (element["IS_PERDU_ANIMAL"] == 0 ? '' : 'style= "background-color:red"') + ">" +  (element["IS_PERDU_ANIMAL"] == 0 ? 'EN POSESSION DE SON PROPRIETAIRE' : 'PERDU') + "</th></tr>";
+          + "<th " + (element["IS_PERDU_ANIMAL"] == 0 ? '' : 'style= "background-color:red"') + ">" +  (element["IS_PERDU_ANIMAL"] == 0 ? 'EN POSSESSION DE SON PROPRIETAIRE' : 'PERDU') + "</th></tr>";
           ancienneLigne = element;
 
       });
