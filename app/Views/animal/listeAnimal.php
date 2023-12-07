@@ -37,6 +37,7 @@ $this->extend('layout/main');
         <th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="id_icad_recherche" oninput="triTableau()" placeholder="ID"></th><th></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="nom_animal_recherche" oninput="triTableau()" placeholder="NOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="date" id="date_naissance_animal_recherche" oninput="triTableau()"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="espece_animal_recherche" oninput="triTableau()" placeholder="ESPECE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="race_animal_recherche" oninput="triTableau()" placeholder="RACE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="sexe_animal_recherche" oninput="triTableau()" placeholder="SEXE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="info_animal_recherche" oninput="triTableau()" placeholder="INFO"></th><th></th><th></th><th></th><th></th><th></th>
       </thead>
       <tbody id="donneeTable">
+</tbody>
 
     </table>
   </div>
