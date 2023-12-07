@@ -21,9 +21,9 @@
     <table>
       <thead>
       <tr>
-        <th>CODE</th><th>EMAIL</th><th>TEL</th><th>NOM</th><th>PRENOM</th><th>VILLE</th><th>ADRESSE</th><th>CODE POSTAL</th>
+        <th>CODE</th><th>EMAIL</th><th>TEL</th><th>NOM</th><th>PRENOM</th><th>VILLE</th><th>ADRESSE</th><th>CODE POSTAL</th><th>Modifier</th><th>Supprimer</th>
       </tr>
-      <th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="code_proprietaire_recherche" oninput="triTableau()" placeholder="CODE"></th><th><i>&#x1F50D;</i><input type="text" id="email_proprietaire_recherche" oninput="triTableau()" placeholder="EMAIL"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="telephone_proprietaire_recherche" oninput="triTableau()" placeholder="TELEPHONE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="nom_proprietaire_recherche" oninput="triTableau()" placeholder="NOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="prenom_proprietaire_recherche" oninput="triTableau()" placeholder="PRENOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="ville_proprietaire_recherche" oninput="triTableau()" placeholder="VILLE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="adresse_proprietaire_recherche" oninput="triTableau()" placeholder="ADRESSE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="code_postal_proprietaire_recherche" oninput="triTableau()" placeholder="CODE POSTAL"></th>
+      <th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="code_proprietaire_recherche" oninput="triTableau()" placeholder="CODE"></th><th><i>&#x1F50D;</i><input type="text" id="email_proprietaire_recherche" oninput="triTableau()" placeholder="EMAIL"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="telephone_proprietaire_recherche" oninput="triTableau()" placeholder="TELEPHONE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="nom_proprietaire_recherche" oninput="triTableau()" placeholder="NOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="prenom_proprietaire_recherche" oninput="triTableau()" placeholder="PRENOM"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="ville_proprietaire_recherche" oninput="triTableau()" placeholder="VILLE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="adresse_proprietaire_recherche" oninput="triTableau()" placeholder="ADRESSE"></th><th class = "barre_de_recherche"><i>&#x1F50D;</i><input type="text" id="code_postal_proprietaire_recherche" oninput="triTableau()" placeholder="CODE POSTAL"></th><th></th><th></th>
 
       </thead>
       <tbody id="donneeTable">
@@ -56,7 +56,9 @@
           + "<th>" + element["PRENOM_PROPRIO"] + "</th>" 
           + "<th>" + element["VILLE_PROPRIO"] + "</th>" 
           + "<th>" + element["ADRESSE_PROPRIO"] + "</th>" 
-          + "<th>" + element["CP_PROPRIO"] + "</th></tr>";
+          + "<th>" + element["CP_PROPRIO"] + "</th>"
+          + "<th> <button value='" + element["ID_PROPRIO"]+"' onclick=modifierProprio(this) >Modifier</button></th>"
+          + "<th> <button value='" + element["ID_PROPRIO"]+"' onclick=supprimerProprio(this)>Supprimer</button></th></tr>";
 
       });
       donneeTable.innerHTML += ligne;
@@ -97,6 +99,18 @@
     }
     return false;
 
+
+  }
+  function modifierProprio(button){
+    window.location.href = "/proprietaire/modification/" + button.value;
+
+  }
+  function supprimerProprio(boutonSupp)
+  {
+
+      //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
+      //boutonModifier.style = "color:dark;background:red;";
+      window.location.href = "/proprietaire/modification/" + boutonSupp.value;
 
   }
 

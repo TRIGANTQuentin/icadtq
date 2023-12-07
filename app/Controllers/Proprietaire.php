@@ -22,6 +22,13 @@ class Proprietaire extends BaseController
         }
   
     }
+    public function pageModification($id)
+    {
+        $model = model('App\Models\proprio');
+        $result['unProprio'] = $model->unProprietaire($id);
+        return view("modificationProprio", $result);
+
+    }
 
     public function information($id)
     {
@@ -35,5 +42,10 @@ class Proprietaire extends BaseController
         $model = model('App\Models\proprio');
         $result['liste_proprietaire'] = $model->listeProprietaire();
         return view("listeProprietaire", $result);
+    }
+    public function bddModification(){
+        $model = model('App\Models\proprio');
+        $result['unProprio'] = $model->modifierProprietaire();
+        return redirect()->to("/proprietaire/liste/"); 
     }
 }

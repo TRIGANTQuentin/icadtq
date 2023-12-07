@@ -87,4 +87,23 @@ public function ajouterProprietaire(){
 
 
 }
+public function modifierProprietaire(){
+    $db = \Config\Database::connect();
+    $requete = $db->table('proprietaire');
+    $arr = [
+        "EMAIL_PROPRIO" =>  $_POST['email'],
+        "NOM_PROPRIO" => $_POST['nom'],
+        "PRENOM_PROPRIO" =>  $_POST['prenom'],
+        "ADRESSE_PROPRIO" =>  $_POST['adresse'],
+        "VILLE_PROPRIO" =>  $_POST['ville'],
+        "CP_PROPRIO" =>  $_POST['code_postal'],
+        "NO_TELEPHONE_PROPRIO" =>  $_POST['phone']
+    ];
+        $requete->where("ID_PROPRIO", $_POST["idProprio"]);
+        $requete->update($arr);
+        return true;
+    
+
+    
+}
 }

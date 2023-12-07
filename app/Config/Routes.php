@@ -69,4 +69,4 @@ $routes->get('/proprietaire/liste/', 'Proprietaire::pageListe');
 
 //Page modification propriétaire
 $routes->get('/proprietaire/modification/(:num)', 'Proprietaire::pageModification/$1');
-$routes->post('/proprietaire/modification/', 'Proprietaire::bddModification');
+$routes->post('/proprietaire/modification', 'Proprietaire::bddModification');
