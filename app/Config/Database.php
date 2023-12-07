@@ -27,8 +27,8 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
+        'username'     => 'quentin',
+        'password'     => 'abzXea8*',
         'database'     => 'icad1',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
@@ -77,8 +77,8 @@ class Database extends Config
     public array $listeAnimal = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
+        'username'     => 'quentin',
+        'password'     => 'abzXea82*',
         'database'     => 'icad1',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
