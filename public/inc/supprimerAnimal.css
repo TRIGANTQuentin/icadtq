@@ -38,36 +38,6 @@
     grid-column: 1 / 2;
 }
 
-#date-supprimer-animal
-{
-    grid-row: 3 / 4;
-    grid-column: 3 / 4;
-}
-
-#sexe-supprimer-animal
-{
-    grid-row: 5 / 6;
-    grid-column: 1 / 2;
-}
-
-#espece-supprimer-animal
-{
-    grid-row: 5 / 6;
-    grid-column: 3 / 4;
-}
-
-#race-supprimer-animal
-{
-    grid-row: 6 / 7;
-    grid-column: 1 / 2;
-}
-
-#info-supprimer-animal
-{
-    grid-row: 6 / 7;
-    grid-column: 3 / 4;
-}
-
 #validation-supprimer-animal
 {
     grid-row-start: 9;
