@@ -60,6 +60,10 @@ $routes->post('/proprio/nouveau', 'Proprietaire::ajouter');
 $routes->get('/animal/perte/(:num)', 'Animal::pagePerteVol/$1');
 $routes->post('/animal/perte/', 'Animal::bddPerteVol');
 
+//Page supprimer animal 
+$routes->get('/animal/supprimer/(:num)', 'Animal::pageSupprimer/$1');
+$routes->post('/animal/supprimer/', 'Animal::bddSupprimer');
+
 //Page informations propriétaire sélectionné
 $routes->get('/proprietaire/information/(:num)', 'Proprietaire::information/$1');
 
