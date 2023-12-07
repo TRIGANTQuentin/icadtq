@@ -11,7 +11,7 @@ $this->extend('layout/main');
 <?php $this->section('css')?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animal perdu</title>
+    <title>Animal retrouvé</title>
     <link rel="stylesheet" href="/inc/modification.css">
     <?php $this->endsection()?>
 </head>

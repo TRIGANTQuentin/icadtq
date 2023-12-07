@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 03 déc. 2023 à 21:07
+-- Généré le : mer. 06 déc. 2023 à 18:55
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -37,17 +37,31 @@ CREATE TABLE `animal` (
   `ESPECE_ANIMAL` int(50) NOT NULL,
   `SEXE_ANIMAL` int(50) NOT NULL,
   `INFO_ANIMAL` varchar(150) NOT NULL,
-  `IS_PERDU_ANIMAL` tinyint(1) NOT NULL DEFAULT 0
+  `IS_PERDU_ANIMAL` tinyint(1) NOT NULL DEFAULT 0,
+  `IS_SUPPRIMER` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `animal`
 --
 
-INSERT INTO `animal` (`ID_ICAD`, `ID_UTILISATEUR`, `ID_PROPRIO`, `NOM_ANIMAL`, `DATE_NAISSANCE_ANIMAL`, `RACE_ANIMAL`, `ESPECE_ANIMAL`, `SEXE_ANIMAL`, `INFO_ANIMAL`, `IS_PERDU_ANIMAL`) VALUES
-(10, 3, 3, 'John', '2023-12-01', 'Mastiff', 2, 1, ' Tâches rousses sur le dos. ', 1),
-(11, 3, 3, 'Jack', '2023-12-01', 'Pixie-bob', 1, 1, 'Je me calme...', 0),
-(12, 3, 8, 'Bug', '2023-11-01', 'Zibeline', 3, 1, 'Il court vite !', 0);
+INSERT INTO `animal` (`ID_ICAD`, `ID_UTILISATEUR`, `ID_PROPRIO`, `NOM_ANIMAL`, `DATE_NAISSANCE_ANIMAL`, `RACE_ANIMAL`, `ESPECE_ANIMAL`, `SEXE_ANIMAL`, `INFO_ANIMAL`, `IS_PERDU_ANIMAL`, `IS_SUPPRIMER`) VALUES
+(10, 3, 3, 'John', '2023-12-01', 'Mastiff', 2, 1, ' Tâches rousses sur le dos. ', 1, 0),
+(11, 3, 3, 'Jack', '2023-12-01', 'Pixie-bob', 1, 1, 'Curieux', 0, 0),
+(12, 3, 8, 'Bug', '2023-11-01', 'Zibeline', 3, 1, 'Il court vite !', 0, 0),
+(13, 3, 7, 'Bob', '2023-10-04', 'York Chocolate Cat', 1, 1, 'Rapide.', 0, 0),
+(14, 3, 7, 'Cat', '2023-06-22', 'Ocicat', 1, 2, 'On dirait un tigre', 0, 0),
+(15, 3, 6, 'Lo', '2023-12-06', 'Colorpoint', 1, 2, 'Calme', 0, 0),
+(16, 3, 8, 'Plume', '2023-11-16', ' Norwegian Forest', 1, 2, 'Monte sur les arbres', 0, 0),
+(17, 3, 6, 'Sax', '2023-12-03', ' Otterhound', 2, 1, 'Aucun', 0, 0),
+(18, 3, 3, 'Feu', '2023-12-01', 'English Toy Terrier', 2, 2, 'Aucun', 0, 0),
+(20, 3, 8, 'Poil', '2023-11-15', 'Newfoundland', 2, 1, 'poil', 0, 0),
+(21, 3, 6, 'Redw', '2023-12-02', 'Irish Red and White Setter', 2, 2, 'Fais de la course de compétition', 0, 0),
+(22, 3, 7, 'Nesquik', '2023-12-04', 'Chocolat self', 3, 2, 'Aucun', 0, 0),
+(23, 3, 3, 'Naya', '2023-09-22', 'Chocolat roan', 3, 2, 'Furtif', 0, 0),
+(24, 3, 8, 'Honey', '2022-10-12', 'Cannelle angora', 3, 1, 'Aime la terre', 0, 0),
+(25, 3, 6, 'Chips', '2023-12-05', 'Black self poils courts', 3, 1, 'poils courts', 0, 0),
+(26, 3, 7, 'Midnight', '2023-07-31', 'Black solid', 3, 1, 'Aucun', 0, 0);
 
 --
 -- Déclencheurs `animal`
@@ -148,7 +162,37 @@ INSERT INTO `log_animal` (`id`, `DATE_NAISSANCE_ANIMAL`, `ESPECE_ANIMAL`, `ID_PR
 (23, '2023-11-01', 1, 8, 3, 12, 'Il court vite !', 'Bug', 1, 'Zibeline', '2023-12-03 18:06:04', 'Modification', 0),
 (24, '2023-12-01', 1, 3, 3, 11, 'Je me calme...', 'Jack', 1, 'Pixie-bob', '2023-12-03 18:33:45', 'Modification', 0),
 (25, '2023-11-01', 3, 8, 3, 12, 'Il court vite !', 'Bug', 1, 'Zibeline', '2023-12-03 18:33:51', 'Modification', 0),
-(26, '2023-12-01', 2, 3, 3, 10, ' Tâches rousses sur le dos. ', 'John', 1, 'Mastiff', '2023-12-03 18:33:58', 'Modification', 1);
+(26, '2023-12-01', 2, 3, 3, 10, ' Tâches rousses sur le dos. ', 'John', 1, 'Mastiff', '2023-12-03 18:33:58', 'Modification', 1),
+(27, '2023-10-04', 1, 7, 3, 13, 'Rapide.', 'Bob', 1, 'York Chocolate Cat', '2023-12-06 18:14:10', 'Ajout', 0),
+(28, '2023-10-04', 1, 7, 3, 13, 'Rapide.', 'Bob', 1, 'York', '2023-12-06 18:14:29', 'Modification', 0),
+(29, '2023-06-22', 1, 7, 3, 14, 'On dirait un tigre', 'Cat', 2, 'Ocicat', '2023-12-06 18:16:36', 'Ajout', 0),
+(30, '2023-06-22', 1, 7, 3, 14, 'On dirait un tigre', 'Cat', 2, 'Ocicat', '2023-12-06 18:16:45', 'Modification', 0),
+(31, '2023-12-06', 1, 6, 3, 15, 'Calme', 'Lo', 2, ' Colorpoint Shorthair', '2023-12-06 18:18:59', 'Ajout', 0),
+(32, '2023-12-06', 1, 6, 3, 15, 'Calme', 'Lo', 2, 'Colorpoint', '2023-12-06 18:19:26', 'Modification', 0),
+(33, '2023-12-01', 1, 3, 3, 11, 'Curieux', 'Jack', 1, 'Pixie-bob', '2023-12-06 18:19:55', 'Modification', 0),
+(34, '2023-10-04', 1, 7, 3, 13, 'Rapide.', 'Bob', 1, 'York Chocolate Cat', '2023-12-06 18:20:43', 'Modification', 0),
+(35, '2023-11-16', 1, 8, 3, 16, 'Monte sur les arbres', 'Plume', 2, ' Norwegian Forest', '2023-12-06 18:24:57', 'Ajout', 0),
+(36, '2023-11-16', 1, 8, 3, 16, 'Monte sur les arbres', 'Plume', 2, ' Norwegian Forest', '2023-12-06 18:25:05', 'Modification', 0),
+(37, '2023-12-03', 2, 6, 3, 17, 'Aucun', 'Sax', 1, ' Otterhound', '2023-12-06 18:28:00', 'Ajout', 0),
+(38, '2023-12-03', 2, 6, 3, 17, 'Aucun', 'Sax', 1, ' Otterhound', '2023-12-06 18:33:18', 'Modification', 0),
+(39, '2023-12-01', 2, 3, 3, 18, 'Aucun', 'Feu', 2, 'English Toy Terrier', '2023-12-06 18:36:44', 'Ajout', 0),
+(40, '2023-12-01', 2, 3, 3, 18, 'Aucun', 'Feu', 2, 'English Toy Terrier', '2023-12-06 18:36:51', 'Modification', 0),
+(41, '2023-12-01', 2, 3, 3, 18, 'Aucun', 'Feu', 2, 'English Toy Terrier', '2023-12-06 18:38:32', 'Modification', 0),
+(42, '2023-12-01', 2, 3, 3, 18, 'Aucun', 'Feu', 2, 'English Toy Terrier', '2023-12-06 18:38:41', 'Modification', 0),
+(43, '2023-11-15', 2, 8, 3, 20, 'poil', 'Poil', 1, 'Newfoundland', '2023-12-06 18:40:25', 'Ajout', 0),
+(44, '2023-11-15', 2, 8, 3, 20, 'poil', 'Poil', 1, 'Newfoundland', '2023-12-06 18:40:34', 'Modification', 0),
+(45, '2023-12-02', 2, 6, 3, 21, 'Fais de la course de compétition', 'Redw', 2, 'Irish Red and White Setter', '2023-12-06 18:42:01', 'Ajout', 0),
+(46, '2023-12-02', 2, 6, 3, 21, 'Fais de la course de compétition', 'Redw', 2, 'Irish Red and White Setter', '2023-12-06 18:42:08', 'Modification', 0),
+(47, '2023-12-04', 3, 7, 3, 22, 'Aucun', 'Nesquik', 2, 'Chocolat self', '2023-12-06 18:43:38', 'Ajout', 0),
+(48, '2023-12-04', 3, 7, 3, 22, 'Aucun', 'Nesquik', 2, 'Chocolat self', '2023-12-06 18:44:03', 'Modification', 0),
+(49, '2023-09-22', 3, 3, 3, 23, 'Furtif', 'Naya', 2, 'Chocolat roan', '2023-12-06 18:46:09', 'Ajout', 0),
+(50, '2023-09-22', 3, 3, 3, 23, 'Furtif', 'Naya', 2, 'Chocolat roan', '2023-12-06 18:46:16', 'Modification', 0),
+(51, '2022-10-12', 3, 8, 3, 24, 'Aime la terre', 'Honey', 1, 'Cannelle angora', '2023-12-06 18:48:43', 'Ajout', 0),
+(52, '2022-10-12', 3, 8, 3, 24, 'Aime la terre', 'Honey', 1, 'Cannelle angora', '2023-12-06 18:48:55', 'Modification', 0),
+(53, '2023-12-05', 3, 6, 3, 25, 'poils courts', 'Chips', 1, 'Black self poils courts', '2023-12-06 18:49:55', 'Ajout', 0),
+(54, '2023-12-05', 3, 6, 3, 25, 'poils courts', 'Chips', 1, 'Black self poils courts', '2023-12-06 18:50:12', 'Modification', 0),
+(55, '2023-07-31', 3, 7, 3, 26, 'Aucun', 'Midnight', 1, 'Black solid', '2023-12-06 18:52:26', 'Ajout', 0),
+(56, '2023-07-31', 3, 7, 3, 26, 'Aucun', 'Midnight', 1, 'Black solid', '2023-12-06 18:52:33', 'Modification', 0);
 
 -- --------------------------------------------------------
 
@@ -280,7 +324,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `animal`
 --
 ALTER TABLE `animal`
-  MODIFY `ID_ICAD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_ICAD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `declarer_retrouve_animal`
@@ -298,7 +342,7 @@ ALTER TABLE `espece_animal`
 -- AUTO_INCREMENT pour la table `log_animal`
 --
 ALTER TABLE `log_animal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT pour la table `proprietaire`

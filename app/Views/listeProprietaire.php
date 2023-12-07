@@ -5,7 +5,7 @@
 <?php $this->section('css')?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doscument</title>
+  <title>Liste des propriétaires</title>
   <link rel="stylesheet" href="/inc/liste_animal.css">
   <?php $this->endsection()?>
 </head>

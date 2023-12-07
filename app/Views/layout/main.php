@@ -51,10 +51,8 @@ else
         <ul class="liste-menu">
             <li class="partie-menu"><a class="titre-partie-menu">Animaux</a>
                 <ul class="sous-partie-menu">
-                    <li class="element-menu"><a class="lien-element" href="/animal/liste_animal">Liste des animaux</a>
-                    </li>
+                    <li class="element-menu"><a class="lien-element" href="/animal/liste_animal">Liste des animaux</a></li>
                     <li class="element-menu"><a class="lien-element" href="/animal/nouveau">Ajouter un animal</a></li>
-                    <li class="element-menu"><a class="lien-element" href="/animal/nouveau">Déclarer un animal retrouvé</a></li>
                 </ul>
             </li>
             <li class="partie-menu"><a class="titre-partie-menu">Propriétaire</a>
