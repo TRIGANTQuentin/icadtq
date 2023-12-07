@@ -113,6 +113,21 @@ class Animal extends BaseController
     }
 
 
+    public function ajouterAnimal(){
+        $arr = [
+            "PRORPIO" => $this->request->getPost('proprietaire'),
+            "NOM_ANIMAL" =>  $this ->request->getPost('name'),
+            "DATE_NAISSANCE_ANIMAL" =>  $this ->request->getPost('date'),
+            "INFO_ANIMAL" =>  $this ->request->getPost('signes'),
+            "PHOTO_ANIMAL" =>  $this ->request->getPost('adresse'),
+            "SEXE_ANIMAL" =>  $this ->request->getPost('sexe'),
+            "ESPECE_ANIMAL" =>  $this ->request->getPost('espece'),
+            "RACE_ANIMAL" =>  $this ->request->getPost('race')
+        ];
+        $registre = new proprio();
+        $registre->insert($arr);
+
+    }
     public function pagePerteVol($id)
     {
         $model = model('App\Models\Animal');
