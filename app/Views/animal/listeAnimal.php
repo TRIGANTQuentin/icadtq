@@ -135,7 +135,7 @@ $this->extend('layout/main');
 
       //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
       //boutonModifier.style = "color:dark;background:red;";
-      window.location.href = "modification/" + boutonSupprimer.value;
+      window.location.href = "supprimer/" + boutonSupprimer.value;
 
   }
 
