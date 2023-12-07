@@ -1,0 +1,75 @@
+#supprimer-animal-contenu
+{
+    display : grid;
+    grid-template-columns: repeat(10,minmax(10%,10%));
+    grid-template-rows: repeat(10,minmax(10%,10%));
+    text-align: center;
+}
+
+
+#div-image-supprimer-animal
+{
+    grid-row: 1 / 8;
+    grid-column: 6 / 10;
+}
+
+#image-supprimer-animal
+{
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+#div-file-image-supprimer-animal
+{
+    grid-row: 9 / 10;
+    grid-column: 7 / 9;
+}
+
+#id-supprimer-animal
+{
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+#nom-supprimer-animal
+{
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+#date-supprimer-animal
+{
+    grid-row: 3 / 4;
+    grid-column: 3 / 4;
+}
+
+#sexe-supprimer-animal
+{
+    grid-row: 5 / 6;
+    grid-column: 1 / 2;
+}
+
+#espece-supprimer-animal
+{
+    grid-row: 5 / 6;
+    grid-column: 3 / 4;
+}
+
+#race-supprimer-animal
+{
+    grid-row: 6 / 7;
+    grid-column: 1 / 2;
+}
+
+#info-supprimer-animal
+{
+    grid-row: 6 / 7;
+    grid-column: 3 / 4;
+}
+
+#validation-supprimer-animal
+{
+    grid-row-start: 9;
+    grid-column-start: 1;
+}

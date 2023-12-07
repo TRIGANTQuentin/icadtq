@@ -76,13 +76,6 @@ class Animal extends BaseController
     public function bddModification()
     {
         
-
-            $config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 100;
-            $config['max_width']            = 1024;
-            $config['max_height']           = 768;
-        
             
             $img = $this->request->getFile('imageAnimal');
             if ($img->getSize() != null)
@@ -96,6 +89,29 @@ class Animal extends BaseController
         $result['unAnimal'] = $model->modifierUnAnimal();
         return redirect()->to('animal/liste_animal'); 
     }
+
+    public function pageSupprimer($id)
+    {
+        $session = session();
+        $session->set(["dernierID_animal" => $id]);
+
+        $model = model('App\Models\Animal');
+        $result['unAnimal'] = $model->unAnimal($id);
+        $result['sexeDifferent'] = $model->sexeDifferent($result['unAnimal'][0]["ID_SEXE"]);
+        $result['especeDifferente'] = $model->especeDifferente($result['unAnimal'][0]["ID_ESPECE"]);
+        return view("animal/supprimerAnimal", $result);
+
+    }
+
+    public function bddSupprimer()
+    {    $session = session();
+
+        $model = model('App\Models\Animal');
+        
+        $model->supprimerUnAnimal($session->get("dernierID_animal"));
+        return redirect()->to('animal/liste_animal'); 
+    }
+
 
     public function pagePerteVol($id)
     {

@@ -11,7 +11,7 @@
 
     <h2>Information de l'animal</h2>
     <div id=""><a>Numéro de l'animal</a>
-    <input type="text" id ="idAnimal" name ="numeroAnimal"> </div>
+    <input type="text" id ="idAnimal" name ="numeroAnimal" required > </div>
 
     <h2>Pour vous contactez</h2>
     <div id="" ><a>Numéro de téléphone</a>

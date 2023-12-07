@@ -45,7 +45,7 @@ class Animal extends Model
         $id = $session->get('id');
 
         $mysqli = mysqli_connect("localhost", "root", "", "icad1");
-        $result = mysqli_query($mysqli,"SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, animal.IS_PERDU_ANIMAL, espece_animal.NOM_ESPECE AS 'ESPECE_ANIMAL' , sexe_animal.NOM_SEXE AS 'SEXE_ANIMAL', proprietaire.NOM_PROPRIO FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.ID_SEXE JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.ID_ESPECE LEFT JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO WHERE animal.ID_UTILISATEUR = " . $id);
+        $result = mysqli_query($mysqli,"SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, animal.IS_PERDU_ANIMAL, espece_animal.NOM_ESPECE AS 'ESPECE_ANIMAL' , sexe_animal.NOM_SEXE AS 'SEXE_ANIMAL', proprietaire.NOM_PROPRIO, proprietaire.ID_PROPRIO FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.ID_SEXE JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.ID_ESPECE LEFT JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO WHERE animal.ID_UTILISATEUR = " . $id . " AND animal.IS_SUPPRIMER != 1 ORDER BY animal.ID_ICAD;");
         $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         return $rows;
     }
@@ -105,6 +105,19 @@ class Animal extends Model
         $requete->where("ID_ICAD", $_POST["idAnimal"]);
         $requete->update($donnee);
         return true;
+    }
+
+    public function supprimerUnAnimal($id)
+    {
+        $db = \Config\Database::connect();
+        $requete = $db->table('animal');
+        $donnee =
+        [
+            "IS_SUPPRIMER" => 1
+        ];
+
+        $requete->where("ID_ICAD", $id);
+        $requete->update($donnee);
     }
 
     public function perduVolAnimal($id)
