@@ -48,4 +48,21 @@ class Proprietaire extends BaseController
         $result['unProprio'] = $model->modifierProprietaire();
         return redirect()->to("/proprietaire/liste/"); 
     }
+    public function pageSupprimer($id)
+    {
+        $session = session();
+        $session->set(["dernierID_PROPRIO" => $id]);
+
+        $model = model('App\Models\proprio');
+        $result['unProprio'] = $model->unProprietaire($id);
+        return view("supprimerProprio", $result);
+}
+public function bddSupprimer()
+{    $session = session();
+
+    $model = model('App\Models\proprio');
+    
+    $model->supprimerUnProprio($session->get("dernierID_PROPRIO"));
+    return redirect()->to('/proprietaire/liste/'); 
+}
 }

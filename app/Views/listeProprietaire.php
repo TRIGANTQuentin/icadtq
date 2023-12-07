@@ -110,7 +110,7 @@
 
       //console.log("La ligne avec l'id " + boutonModifier.value + " est prêt à être supprimer !");
       //boutonModifier.style = "color:dark;background:red;";
-      window.location.href = "/proprietaire/modification/" + boutonSupp.value;
+      window.location.href = "/proprietaire/supprimer/" + boutonSupp.value;
 
   }
 
