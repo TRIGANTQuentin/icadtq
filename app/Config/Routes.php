@@ -12,7 +12,7 @@ $routes->get('/', 'Home::index');
 //$routes->get('/', 'Home::pageConnexion');
 
 //Page local pour création de compte
-$routes->get('/inscription', 'Register::index');
+$routes->get('/inscription', 'Register::page');
 $routes->post('/inscription', 'Register::validation');
 
 

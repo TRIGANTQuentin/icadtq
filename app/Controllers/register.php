@@ -5,7 +5,7 @@ use \App\Models\Utilisateur;
 
 class Register extends BaseController
 {
-    public function index(): string
+    public function page(): string
     {
            return view('register');
 
