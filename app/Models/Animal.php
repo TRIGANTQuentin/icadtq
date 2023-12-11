@@ -45,7 +45,7 @@ class Animal extends Model
         $id = $session->get('id');
 
         $db = \Config\Database::connect();
-        $result = $db->query("SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, animal.IS_PERDU_ANIMAL, espece_animal.NOM_ESPECE AS 'ESPECE_ANIMAL' , sexe_animal.NOM_SEXE AS 'SEXE_ANIMAL', proprietaire.NOM_PROPRIO, proprietaire.ID_PROPRIO FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.ID_SEXE JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.ID_ESPECE LEFT JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO WHERE animal.ID_UTILISATEUR = " . $id . " AND animal.IS_SUPPRIMER != 1 ORDER BY animal.ID_ICAD;");
+        $result = $db->query("SELECT animal.ID_ICAD, animal.NOM_ANIMAL, animal.DATE_NAISSANCE_ANIMAL, animal.INFO_ANIMAL, animal.RACE_ANIMAL, animal.IS_PERDU_ANIMAL, espece_animal.NOM_ESPECE AS 'ESPECE_ANIMAL' , sexe_animal.NOM_SEXE AS 'SEXE_ANIMAL', proprietaire.NOM_PROPRIO, proprietaire.ID_PROPRIO FROM animal JOIN sexe_animal ON animal.SEXE_ANIMAL = sexe_animal.ID_SEXE JOIN espece_animal ON animal.ESPECE_ANIMAL = espece_animal.ID_ESPECE LEFT JOIN proprietaire ON animal.ID_PROPRIO = proprietaire.ID_PROPRIO WHERE animal.ID_UTILISATEUR = " . $id . " AND animal.IS_SUPPRIMER = 0 ORDER BY animal.ID_ICAD;");
         return $result->getResultArray();
     }
 
