@@ -7,7 +7,7 @@ class Register extends BaseController
 {
     public function page()
     {
-           return view('register');
+           return view('registe');
 
     }
     public function validation(){
