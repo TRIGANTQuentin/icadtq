@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'quentin',
-        'password'     => 'abzXea8*',
+        'password'     => 'abzXea82*',
         'database'     => 'icad1',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
